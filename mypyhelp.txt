@@ -1,0 +1,137 @@
+------------My Python Quick Reference-------------
+
+--------Search and Iterate:
+for item in list:
+     print item
+
+val in list   # returns boolean (no paran needed)
+
+if item in list:
+	print item
+
+'string' in stringS  #returns boolean (ex. 'j' in mystring)
+		- is 'j' in mystring
+-----------------------------
+
+
+---------strings:
+s = ""
+string.strip() #returns string with the whitespace stripped from beginning and end of the string
+string.find('specific instance')  # returns index of first find
+	- returns -1 if not found
+	--- returns index where search terms begins s1.find('jason') returns index of first 'j'
+string.lower()
+string.upper()
+	- returns new string but does not alter actual string (unlike list.reverse())
+string[0:-1]
+string[:]
+string[5:]
+newString = string[5:9] + otherString[0:2]
+newSTring = string.replace('old string' , 'with new string')   #replace old string with new and return string
+------------------------------------
+
+
+-----------lists:
+l = []
+l.append(value)
+l[0] = value
+l[0:10]
+l.pop(index)
+list.append(item)  #adds item to the end
+list.insert(index, item) # add item to specific spot
+list1.extend(list2)  # extend list1 by list2
+		- same as l1 = l1 + l2
+list.remove(item)  #first instance.  does not return
+list.pop(index)  # find and retrieve item at index foo
+index = list.index(item)  # find index of the item in list
+list[0:5] = 'string'  # must be an interable variable, so ints must be converted later
+			- replaces All with ONE
+list.reverse() # actually reverse permanently the list
+list.split(",") # split a string at commas and make a list of individual parts. returns the list.
+		- no arugment default = split along blank space
+
+----------join glues  parts | split strings
+" ".join(list) # returns a string made by joining the string elements together with whatever's in quotes
+
+string.split(":")
+	-splits a string and returns a list of individual items from that string
+---------------------------------------
+
+-----------sort
+sortedList = sorted(listToSort)
+reveresSortedList = sorted(listToSort, reverse = True)
+
+customSortedList = sorted(listToSort, key = myfunction)  # where myFunction is 
+		- def myFunction():
+			firstNum = str(x) #passed in from search function
+			return firstNum
+----------------------------------------
+
+----------dicts:
+d = {}
+d = dict(key1=1, key2=2)
+d['a'] = 'value for key a'
+d.items()  #list key / value pairs
+d.keys()  #list the keys
+d.values() #list the values only
+d['a'] # returns value for key 'a'
+for key in d.keys():  print key
+for key in sorted(d.keys()): print "key = ", key
+d['newKey'] = 'create new key with syntax'
+for key in sorted(d.items()): print "key = %s  :: value = %s" % (key) # where type(key) = a tuple
+for key in sorted(d.keys()):  print "key: ", key, "--> ", d[key]
+
+ -------------printing dicts: 
+ ex1 --> print dict['z']                  ## Throws KeyError if key 'z' is not present
+ ex2 --> if 'z' in dict: print dict['z']  ## Avoids KeyError
+ ex3 --> print dict.get('z')  			  ## returns 'None' (instead of throwing KeyError)
+
+ ---------Loop over the keys in sorted order,
+  ## accessing each key/value
+ ex--> for key in sorted(dict.keys()):
+   		 print key, dict[key]
+
+ --------Looping thru dicts:
+ ##This loop syntax accesses the whole dict by looping
+  ## over the .items() tuple list, accessing one (key, value)
+  ## pair on each iteration.
+ ex --> for k, v in dict.items(): print k, '>', v
+  				a > alpha    o > omega     g > gamma
+
+ ---------DEL:  Deleting parts of lists and dicts:
+  var = 6
+  del var  # var no more!
+  
+  list = ['a', 'b', 'c', 'd']
+  del list[0]     ## Delete first element
+  del list[-2:]   ## Delete last two elements
+  print list      ## ['b']
+
+  dict = {'a':1, 'b':2, 'c':3}
+  del dict['b']   ## Delete 'b' entry
+  print dict      ## {'a':1, 'c':3}
+
+-----------file objects:
+fileObject = open("filename.txt", 'r' <or 'w'> ) 
+fileOjbect.close()
+f = open('filename.txt', 'r')
+for line in f:  print line
+
+f.readlines() # returns a list of lines where \n (newline) is used as the split
+	- as opposed to split up a string by individual parts, this splits a file by each line on then newline '\n'
+	- returns the ENTIRE file into memory as a 'python list of lines' where each element in the list is a single line
+f.read() # returns the file as one long string (read 'all')
+
+f = open('myLog.txt', 'r')
+for line in f:
+	f.readlines()   [or] f.read()   [or] print line
+--------------------------------
+
+#!/usr/bin/env python
+-----------To Make Python Script Executable from anywhere:
+	1. make script executable: chmod +x myscript.py;
+	2. add to scripts first line: octothorpe  -aka "'#'" + ! + path to python;
+		- whereis python + env + space + python;
+        - como esto:	"#!/usr/bin/env python";
+
+
