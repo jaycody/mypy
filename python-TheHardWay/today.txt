@@ -1,0 +1,150 @@
+  	
+####Pado-ToDo:
+- **Today:**
+	- [] check in with Owen re: pushing to shop
+	- [x] check Owen's updates to staging.catalogspree.  did he fix the issue with font on windows machine?
+	- [x] appstore.com/catalogspree URL redirect not working wtf?
+	- [] Follow up on Apple Bug Report: 15388112 re: appstore.com/catalogspree malfunction
+	- [x] uTest check 
+	- [x] [vanity url stack overlow](http://stackoverflow.com/questions/14687635/how-to-create-vanity-url-for-apple-appstore) 
+	- [] testing the triggered email [[pxTestingTriggeredEmail]]
+	- [] testing the spam filtering for triggered email
+	- [] Ibiza Checklist
+	- [] add the following 2 steps to the email creation procedure explained to me by Brian
+		- the first is to test the email by sending it to yourself and make sure all links and substitutions work
+		- and the last is to generate a text version of the email
+			- obviously the text version goes into the file with the same filename, but a 'txt' suffix
+	- [x] create a email creation wiki entry.  transcribe notes from Brian's tutorial
+	- [] test LightBox (pushed to next week)
+		- [] Mac OS
+		- [] Windows 8
+		- [] Windows 7
+	- [x] update the LightBox documentation
+	- [] investigate jira asana connection https://asana.com/apps/jira
+	- [x] push production branch to staging web
+	- [x] verify that departments page is dynamically changing based on screen size for all related environments.
+	- [x] WTF with the Gift Center help message that I thought I fixed?  remove 's' from helpers and remove 'here' from sentence.
+	- [x] sync man between apple contacts and google contacts
+	- [x] send email to everyone for testing grey spree
+	- [] sync with Brian re: Padospeed 5425
+	- [] PADO-5399 verify my spree promo inserts
+	- [x] check reported bugs from uTest
+	- [] PADO-5704:  Talk to Brian about Testing this (My Spree Promo insertion algorithm)
+	- [] Sync with Brian Tuesday:  get started on the triggered emails HTML (sync with Brian)
+	- [x] what's the official name for our view button on bottom right of 'My Spree Filter Button'
+	- [] url price scrapping scripts
+
+- **Ongoing**
+	- [] Add a 'productOutOfStock' attribute to a brand (see Nordstrom as example).  For use when a catalog shows a product but the website says product is gone.
+	- [] update the GEAR spreadsheet such that we have one list of each piece of gear, and each piece is issued to someone.  ('We want to do this before we're purchased')
+	- [] process all the open bugs
+	- [] awaiting response from joaquin re: pado-field trip
+	- [] investigate automating lightbox testing
+	- [] make sure monthly billing receipt for GAE makes it way to Kali and Lee
+	- Padospeed
+		- [] padospeed issue could be that the test is hitting GAE with 3 test simultaneously (check GAE)
+		- [] awaiting Brian's upgrade to the server before restarting the padospeed tests
+		- [] unpause padospeed1 tests in Pingdom after paid GAE account is activated
+		- [] check back with GAE to check daily consumption
+		- [] check into enabling Warmup Requests:
+			- You currently do not have Warmup Requests enabled.
+			- In order for your Min Idle Instances setting to immediately spin up instances you need to enable Warmup Requests for the default version of your application. 
+			- You can configure Warmup Requests in your app.yaml or appengine-web.xml configuration files.
+- **self**
+	- [x] remove RS from juggling molecules README
+	- [] add juggling molecules github to linkedIN
+	- [] write a summary
+	- [] order RAM for my sister's computer
+	- [] signup for ITP dropBox and add all those books
+	- [] Interactive Art and Embodiment book never arrived from Amazon
+	- [] Turn OFF aPlus and move everything over before the auto renewal on 9 Nov.  Business Class plan = 119$  Dang!
+	- [] Buy Spigen Case:  http://www.spigen.com/checkout/cart/
+	- [] Call VA to Change direct deposit:
+		- Veterans Compensation, Pension and Education (MGIB) recipients already receiving benefits may change their direct deposit information by calling 1 (877) 838-2778, Monday through Friday, 7:30 a.m. to 4:50 p.m. Central Time or contact them online at Department of Veterans Affairs web site. Please be prepared to provide your new financial institution's 9 digit routing number, your new account number and type of account (checking or savings).
+	- [] check Provident bank account and add deposit amounts to paypal as verification
+	- [] check these links for InteractiveSpaces:
+		- Either active (http://pcandlaptopaccessories.wordpress.com/2012/05/26/ion-3d-glove-mouse-cordless/) 
+		- or passive (http://www.youtube.com/watch?v=kK0BQjItqgw) with additional CV processing.
+		- inertial motion tracking w/ Motioner (https://github.com/YCAMInterlab/MOTIONER/wiki/Overview)
+		- RAM Dance Toolkit
+			- (http://www.creativeapplications.net/environment/reactor-for-awareness-in-motion-ram-by-ycam-download/)
+			- (http://www.creativeapplications.net/environment/reactor-for-awareness-in-motion-ram-by-yoko-ando-and-ycam/)
+	- [] add recent project to linked in
+	- [] Give to Tangeez kickstarted
+	- [] contact R8R re: print
+	- [] sign into direTV account and update email
+		__________
+- ####Ongoing:
+	1. **iOS Automated Test Framework (Calabash - Cucumber - Ruby)**
+		- [] implement on my machines
+		- [] divided the different types of tests into jira tickets
+		- [] **List of iOS test with calabash:**
+			- [] Price Watch of products from multi brand catalogs
+		- [] error handling for calabash
+			- [] create a single calabash test that will recreate a searchIssue
+			- [] set an alert for github master so that I manually run the tests whenever changes are made
+		- [] Use Jenkins to auto run calabash tests every time I receive a notification from github that changes have been made to master
+			- [] ensure notifications from github are arriving.  (check github and check my filtering)
+			- [] setup alert to trigger calabash tests if and when gihub notifies me of changes to master
+		- [] write one Calabash test to recreate and issue from uTest
+			- [] use this to communicate in jira to rus and lee
+
+
+	2. **Help FAQ padodev/_help  [[pxFAQCatalogSpreeHelp]] (ongoing)**
+		- [] See Harrison about where the images live (2x and normal images)?
+		- [] How do we load the 2x or normal images depending on the type of iPad?  
+		- [] How does the Paper Karma 2x image know to be loaded for retina displays?  configDB?
+		- [] incorporate images into the FAQ
+		- [] Rewrite the text so that it makes sense with images
+			- Ngan wrote the original FAQ as if images were included, but it's been changed to make sense w/o images.  
+		- [] provide a web version of the current FAQ for anyone like Lee's sister and/or the on boarders can understand
+		- [] create images using screenshots from retina
+		- [] put the images in directory titled 'media' in the _help directory
+		- [] use Nicole's script to reduce resolution of  retina screenshots by 1/2
+		- [] include the images to the FAQ (2x and normal size depending on retina)
+		- [] Update the HTML to incorporate the 2x and normal images now located in the media folder (see Harrison)
+			- [] use HTML tag to point at the images
+			- [] embed the style info into the image itself (see Harrison)
+
+________________
+
+####Coding Tutorials:
+1. [] codeAcademy -> python
+2. [] RaspberryPi text book for python implementation
+3. [] command line crash course:
+	- http://learncodethehardway.org/cli/book/
+8. [] [C.S. with Python (MIT)](https://www.edx.org/courses/MITx/6.00x/2013_Spring/courseware/Week_2/)
+5. [] V: [] write a python script that will test the GoldBach conjecture for all integers 4-100
+		- 'every even number greater than 2 can be expressed as a sum of two primes
+		- print the primes in each case
+		- generate a list of primes and then add each one to each other one 
+	- [] use big o notation to report on the time complexity of the script
+		- O(someExpression)
+	- [] install python debugger module into [sublime text 2](https://pypi.python.org/pypi/PdbSublimeTextSupport)
+7. [] [coursera python class](https://class.coursera.org/interactivepython-002/class/index)
+2. [] codeAcademy -> Ruby
+3. [] Calabash Cucumber Text
+6. [] Selenium Text
+
+
+_______   
+
+
+####Pado-Duties (1 is me, 2 is collaborate, 3 is push the button):
+- (1) manage Test Cycles (uTest, workflows, known issues)
+- (1) manage defect life cycle (bug tracking, verifying fixes, analytics)
+- (1) create and maintain wiki for test procedures, specs, workflows
+- (1) manage Provisional Profiles for iOS Development and Testing
+- (1) manage inventory and equipment
+- (2) specify, design, and implement changes to existing test infrastructure
+- (2) manage release schedule
+- (2) define and develop test automation tools and processes for improving the overall quality of the product:
+	- (2) build, implement, manage a test automation framework for the web using Python, Selenium, Google Apps Engine, Pingdom
+	- (2) build, implement, manage a test automation framework for iOS using Cucumber / Calabash / Ruby
+- (2) manage and document usability tests
+- (1) URL redirects page
+- (1) Help FAQ
+- (1 )safety officer
+________
+
+####----------If you can’t make something not work, keep on trying.------------------

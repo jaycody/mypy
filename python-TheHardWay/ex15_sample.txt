@@ -1,0 +1,6 @@
+
+
+	This is stuff I typed into a file using Nano.
+	Here's another line from Nano
+	And yet another
+

@@ -1,0 +1,17 @@
+Hello Jason
+Today is July 25th, 2012. 
+Once again you are attempting to upgrade your note taking method. 
+Today you decided to revisit a modern version of Notational Velocity (nvALT).  You once used this method during grad school (just over a year ago), but you abandoned it after hardly any use.  Tomorrow however you are starting a new job as Software QA for Padopolis (part-time paid internship 25/hour at 20 hours/week for the first six weeks), and you want to upgrade from your current clumsy system of note taking using EVERNOTE.  
+Here's what you need to know:
+1. nvALT syncs with SimpleNote
+2. SimpleNote is a free service that allows synching between machines and devices
+3. Chrome browser has an nvALT button in the bookmarks toolbar
+KEY:
+pX = padopolis
+techX = my tech related notes and workflows for the lab
+eX = events
+IHSx = interactive healing spaces
+jayX = personal
+aX = apple
+
+
