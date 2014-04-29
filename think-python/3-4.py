@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Function Objects
+Exercise 3-4:  Function Objects
 can be assigned to variables
 or passed as an argument.
 1. write and test the example script
