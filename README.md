@@ -15,3 +15,5 @@
 - In the colloquial, one can say that a person's kung fu is good in cooking, or that someone has kung fu in calligraphy; saying that a person possesses kung fu in an area implies skill in that area, which they have worked hard to develop. 
 
 - Someone with "bad kung fu" simply has not put enough time and effort into training, or seems to lack the motivation to do so
+
+export PS1='\[\033[0;34m\][\[\033[0;31m\]\H \[\033[1;35m\]\u \[\033[0;32m\]\w\[\033[0;34m\]]\[\033[0m\] '
