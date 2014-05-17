@@ -28,7 +28,10 @@ def polygon(t, length, turn, n):
 	'''	
 
 def circle(t, r):
-	
+	'''
+	Draws a circle of radius r.  1st calculates circumference 2PI*r.  then divides the circumference
+	by the number of step_length required to approximate a circle
+	'''
 	circum = 2*math.pi*r
 	numSides = r * 1.0
 	length = circum/numSides
