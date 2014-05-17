@@ -5,7 +5,10 @@ import math
 world = TurtleWorld()
 bob = Turtle()
 
-bob.delay = 0.01
+bob.delay = 0.001
+world.ca_width = 700
+world.ca_height = 700
+world.canvas = world.ca(world.ca_width, world.ca_height, bg='white')
 
 # function to draw a square
 def square(t, length, turn, degree):
@@ -40,6 +43,8 @@ def arc(t, r, angle, turn):
 	n = int(arcLength/r) + 1
 	step_length = arcLength/n
 	step_angle = float(angle)/n
+
+	polyline(t, n, step_length, step_angle, turn)
 	
 
 def polyline(t, n, length, angle, turn):
@@ -76,18 +81,31 @@ for i in range(singleStart):
 '''
 
 
-singleStart = 150 
+singleStart = 100
+previousEither = lt
 for i in range(singleStart):
 	if i % 2 == 0:
-		either = rt
+		either = lt
 	elif i%3 ==0:
 		either = lt
 	elif i%7 ==0:
 		either = rt
+	elif i%11 ==0:
+		either = rt
 	else: 
 		either = lt
 
-	polygon(bob, length = (singleStart-i*.9), n = (2+int((i+1)*.1)), turn=either)
+	polygon(bob, length = (singleStart-i*.7), n = (2+int((i+1)*.08)), turn=either)
+
+	polygon(bob, length = (2+i*5), n = (2+int((i+1)*1)), turn=previousEither)
+
+	
+
+	arc(bob ,r=4*i+1 ,angle = 137 ,turn = either) 
+	arc(bob ,r=3*i+1 ,angle = 45 ,turn = previousEither) 
+
+	previousEither = either
+	#circle(bob ,r = singleStart-i+1)
 
 
 '''
