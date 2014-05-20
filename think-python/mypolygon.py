@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 from swampy.TurtleWorld import *
 
 import math
@@ -73,8 +75,8 @@ for i in range(singleStart):
 '''
 
 def keeper():
-	'''Nested Polygon with sweet spot for variables
-	'''
+	"""Nested Polygon with sweet spot for variables
+	"""
 	singleStart = 100
 	previousEither = lt
 	for i in range(singleStart):
