@@ -39,9 +39,6 @@ def circle(t, r):
 	polygon(t, length, lt, r)
 	
 
-
-
-
 def arc(t, r, angle, turn):
 	"""Draws portion of a circle determined by angle of size radius of that circle
 	"""
@@ -66,28 +63,6 @@ def polyline(t, n, length, angle, turn):
 
 def flower():
 	polygon(bob, 25, rt, 5)
-
-
-flower()
-
-
-
-'''
-singleStart = 150 
-for i in range(singleStart):
-	if i % 2 == 0:
-		either = rt
-	elif i%3 ==0:
-		either = lt
-	elif i%7 ==0:
-		either = rt
-	else: 
-		either = lt
-
-	#polygon(bob, length = (singleStart-i*.9), n = (2+int((i+1)*.1)), turn=either)
-	
-	arc(bob, r = 1+int(i*.9), angle = (i+1)*2, turn=either)
-'''
 
 
 def keeper():
@@ -125,6 +100,8 @@ def keeper():
 ################
 ## Function Calls
 ################
+#flower()
+
 keeper()	
 
 wait_for_user()
