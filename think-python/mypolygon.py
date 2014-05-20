@@ -17,7 +17,6 @@ def square(t, length, turn, degree):
 def polygon(t, length, turn, n):
 	angle = 360/n
 	polyline(t, n, length, angle, turn)
-
 	'''
 	for i in range(n):
 		fd(t, length)
@@ -25,28 +24,43 @@ def polygon(t, length, turn, n):
 	'''	
 
 def circle(t, r):
-	
+	'''
 	circum = 2*math.pi*r
 	numSides = r * 1.0
 	length = circum/numSides
-
 	polygon(t, length, lt, r)
+	'''
+	arc(t, r, 360, rt)
 
 
 
 def arc(t, r, angle, turn):
+	"""Draws portion of a circle determined by angle of size radius of that circle
+	"""
 	circum = 2 * math.pi * r
 	arcLength = circum*angle/360
 	n = int(arcLength/r) + 1
 	step_length = arcLength/n
 	step_angle = float(angle)/n
-	
+	polyline(t, n, step_length, step_angle, turn)	
+
 
 def polyline(t, n, length, angle, turn):
+	"""Draws n line segments with the given length and angle
+	in degrees between them.  t is the turtle
+	"""
 	for i in range(n):
 		fd(t, length)
 		turn(t, angle)
 	
+def flower():
+	polygon(bob, 25, rt, 5)
+
+
+flower()
+
+
+
 	#arcLength = int(arcLength)
 	#polygon(t, step_length, turn, n)
 
@@ -57,6 +71,9 @@ def polyline(t, n, length, angle, turn):
 
 # include keyword arguments  !! CAN BE ANY ORDER
 #arc(bob, 50, 190, lt)
+#circle(bob, 100)
+
+
 
 '''
 singleStart = 150 
@@ -75,7 +92,7 @@ for i in range(singleStart):
 	arc(bob, r = 1+int(i*.9), angle = (i+1)*2, turn=either)
 '''
 
-
+'''
 singleStart = 150 
 for i in range(singleStart):
 	if i % 2 == 0:
@@ -88,7 +105,7 @@ for i in range(singleStart):
 		either = lt
 
 	polygon(bob, length = (singleStart-i*.9), n = (2+int((i+1)*.1)), turn=either)
-
+'''
 
 '''
 polygon(bob,  n=11, length=50, turn=rt)
