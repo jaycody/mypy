@@ -92,15 +92,15 @@ for i in range(singleStart):
 	elif i%3 ==0:
 		either = lt
 	elif i%7 ==0:
-		either = rt
+		either = lt
 	elif i%11 ==0:
 		either = rt
 	else: 
 		either = lt
 
-	polygon(bob, length = (singleStart-i*.7), n = (2+int((i+1)*.08)), turn=either)
+	polygon(bob, length = (singleStart-i*.7), n = (1+int((i+1)*.01)), turn=either)
 
-	polygon(bob, length = (2+i*5), n = (2+int((i+1)*1)), turn=previousEither)
+	polygon(bob, length = (2+i*5), n = (2+int((i+1)*.1)), turn=previousEither)
 
 	
 
