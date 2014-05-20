@@ -55,17 +55,6 @@ def polyline(t, n, length, angle, turn):
 		fd(t, length)
 		turn(t, angle)
 	
-	#arcLength = int(arcLength)
-	#polygon(t, step_length, turn, n)
-
-#square(bob, 100, lt, 45)
-#square(bob, 100, rt, 100)
-
-#square(bob, 100, lt, 90)
-
-# include keyword arguments  !! CAN BE ANY ORDER
-#arc(bob, 50, 190, lt)
-
 '''
 singleStart = 150 
 for i in range(singleStart):
@@ -83,51 +72,40 @@ for i in range(singleStart):
 	arc(bob, r = 1+int(i*.9), angle = (i+1)*2, turn=either)
 '''
 
+def keeper():
+	'''Nested Polygon with sweet spot for variables
+	'''
+	singleStart = 100
+	previousEither = lt
+	for i in range(singleStart):
+		if i % 2 == 0:
+			either = lt
+		elif i%3 ==0:
+			either = lt
+		elif i%7 ==0:
+			either = lt
+		elif i%11 ==0:
+			either = rt
+		else: 
+			either = lt
 
-singleStart = 100
-previousEither = lt
-for i in range(singleStart):
-	if i % 2 == 0:
-		either = lt
-	elif i%3 ==0:
-		either = lt
-	elif i%7 ==0:
-		either = lt
-	elif i%11 ==0:
-		either = rt
-	else: 
-		either = lt
+		polygon(bob, length = (singleStart-i*.7), n = (1+int((i+1)*.01)), turn=either)
 
-	polygon(bob, length = (singleStart-i*.7), n = (1+int((i+1)*.01)), turn=either)
+		polygon(bob, length = (2+i*5), n = (2+int((i+1)*.1)), turn=previousEither)
 
-	polygon(bob, length = (2+i*5), n = (2+int((i+1)*.1)), turn=previousEither)
+		
 
-	
+		arc(bob ,r=4*i+1 ,angle = 137 ,turn = either) 
+		arc(bob ,r=3*i+1 ,angle = 45 ,turn = previousEither) 
 
-	arc(bob ,r=4*i+1 ,angle = 137 ,turn = either) 
-	arc(bob ,r=3*i+1 ,angle = 45 ,turn = previousEither) 
-
-	previousEither = either
-	#circle(bob ,r = singleStart-i+1)
+		previousEither = either
+		#circle(bob ,r = singleStart-i+1)
+	###########################################
 
 
-'''
-polygon(bob,  n=11, length=50, turn=rt)
-polygon(bob, 50, lt, 5)
-polygon(bob, 50, rt, 9)
-polygon(bob, 50, lt, 4)
-polygon(bob, 50, rt, 6)
-polygon(bob, 50, lt, 3)
-'''
-
-'''
-circle(bob, 20)
-circle(bob, 50)
-circle(bob, 100)
-circle(bob, 75)
-circle(bob, 30)
-circle(bob, 10)
-'''
-
+################
+## Function Calls
+################
+keeper()	
 
 wait_for_user()
