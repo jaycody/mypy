@@ -14,19 +14,19 @@ world.canvas = world.ca(world.ca_width, world.ca_height, bg='white')
 
 # function to draw a square
 def square(t, length, turn, degree):
+	'''Draws a square with sides of give length
+	'''
 	for i in range(4):
 		turn(t, degree)
 		fd(t, length)
 		
 
 def polygon(t, length, turn, n):
+	'''Draws a regular polygon with n sides'''
+
 	angle = 360/n
 	polyline(t, n, length, angle, turn)
-	'''
-	for i in range(n):
-		fd(t, length)
-		turn(t, angle)
-	'''	
+	
 
 def circle(t, r):
 	'''
@@ -40,8 +40,14 @@ def circle(t, r):
 	
 
 def arc(t, r, angle, turn):
-	"""Draws portion of a circle determined by angle of size radius of that circle
-	"""
+	'''Draws an arc with the given radius and angle.
+
+	t: Turtle object
+	r: radius
+
+	angle: angle subtended by the arc, in degrees
+	turn:  direction, either left turn (lt) or right turn (rt)
+	'''
 	circum = 2 * math.pi * r
 	arcLength = circum*angle/360
 	n = int(arcLength/r) + 1
@@ -53,21 +59,22 @@ def arc(t, r, angle, turn):
 
 
 def polyline(t, n, length, angle, turn):
-	"""Draws n line segments with the given length and angle
+	'''Draws n line segments with the given length and angle
 	in degrees between them.  t is the turtle
-	"""
+	'''
 	for i in range(n):
 		fd(t, length)
 		turn(t, angle)
 	
 
 def flower():
-	polygon(bob, 25, rt, 5)
+	
+	#polygon(bob, 25, rt, 5)
 
 
 def keeper():
-	"""Nested Polygon with sweet spot for variables
-	"""
+	'''Nested Polygon with sweet spot for variables
+	'''
 	singleStart = 100
 	previousEither = lt
 	for i in range(singleStart):
@@ -100,8 +107,8 @@ def keeper():
 ################
 ## Function Calls
 ################
-#flower()
+flower()
 
-keeper()	
+#keeper()	
 
 wait_for_user()
