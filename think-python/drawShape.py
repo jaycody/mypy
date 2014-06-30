@@ -74,7 +74,7 @@ numShapes = getDimension(3)
 ##############################
 
 
-polygon(t=bob ,length=getLength ,n=getN)
+
 
 #############################
 ## Direct DRAW
@@ -88,6 +88,7 @@ polygon(t=bob ,length=getLength ,n=getN)
 ##############################
 
 for shape in range(numShapes):
+	polygon(t=bob ,length=getLength ,n=getN+shape)
 	drawSquare(lt, bob, shape*5)
 	#polygon(t=bob ,length=(numShapes-shape)*3 ,n=numShapes-shape+3)
 	#arc(bob, radius*(shape*.5)+1, angle*shape+1)
