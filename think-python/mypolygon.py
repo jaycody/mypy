@@ -68,8 +68,8 @@ def polyline(t, n, length, angle, turn):
 	
 
 def flower():
-	
-	#polygon(bob, 25, rt, 5)
+	polygon(bob, 25, rt, 5)
+
 
 
 def keeper():

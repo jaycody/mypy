@@ -45,6 +45,10 @@ def printVerticalEdge(verticleEdge, widthVerticles):
 	print (verticleEdge)
 
 def getDimension(argvIndex):
+	'''takes commnad line arg for number of sides of polygon.
+	When no input present, uses default num of sides
+	'''
+
 	if argvIndex+1 > len(sys.argv):
 		return 25
 		
