@@ -17,3 +17,37 @@
 - Someone with "bad kung fu" simply has not put enough time and effort into training, or seems to lack the motivation to do so
 
 export PS1='\[\033[0;34m\][\[\033[0;31m\]\H \[\033[1;35m\]\u \[\033[0;32m\]\w\[\033[0;34m\]]\[\033[0m\] '
+
+
+______________________
+
+###py notes:
+
+#####Docstring Conventions:
+- from [PEP 257 Docstring Conventions]
+- "A universal convention supplies all of maintainability, clarity, consistency, and a foundation for good programming habits too..."
+- if a method, function, or class begins with a string literal, it is stored in the object's __doc__ attribute
+- a phrase ending in a period that PRESCRIBES the function or method's effect AS A COMMAND
+	- eg """Do FOO!  Return Bar!"""
+	- write as a PRESCRIPTION, not as a DESCRIPTION!
+	- eg not, """Returns a BAR"""  but """Return Bar"""
+- multi-line docstrings are one-line summaries followed by blank line then multi-line descriptions
+	- eg 
+	```python
+	"""Multi-Line docstring starts with one-line summary
+
+	Followed by a blank line, then a more general description
+	requiring as many lines as required
+	"""
+	```
+	- all lines of the multi-line docstring are indented to same indent as the first quotes
+
+####the help utility ==> help()
+- to start the help utility:
+	- type help() in the interpreter
+- enter the name of any module 
+
+
+
+
+[PEP 257 Docstring Conventions]:http://legacy.python.org/dev/peps/pep-0257/
