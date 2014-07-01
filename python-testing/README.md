@@ -8,4 +8,14 @@ ____________________________
 - anything that can be expressed in python is valid in doctest
 - from command line  
 ```$ python -m doctest foo.txt```
+
+#####Doctest syntax:
+```
+>>> def startsWithPrompt():
+...    print "continues with ellipsis"
+...    print "blank line is for expected answer"
+... startsWithPrompt()
+continues with ellipsis  
+blank line is for expected answer  
+```
  
