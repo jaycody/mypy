@@ -23,7 +23,7 @@ ______________________
 
 ###py notes:
 
-#####Docstring Conventions:
+####Docstring Conventions:
 - from [PEP 257 Docstring Conventions]
 - "A universal convention supplies all of maintainability, clarity, consistency, and a foundation for good programming habits too..."
 - if a method, function, or class begins with a string literal, it is stored in the object's __doc__ attribute
@@ -42,6 +42,8 @@ ______________________
 	```
 	- all lines of the multi-line docstring are indented to same indent as the first quotes
 
+_________________
+
 ####the help utility ==> help()
 - to start the help utility:
 	- type help() in the interpreter
@@ -51,6 +53,8 @@ ______________________
 ```
 help(moduleFoo.functionFoo)
 ```
+
+_________________
 
 ####MISC
 - **encapsulation**:  wrapping a piece of code in a function
@@ -64,6 +68,8 @@ help(moduleFoo.functionFoo)
 		- The CALLER agrees to provide certain parameters (PRECONDITIONS)
 		- The FUNCTION agrees to do certain work  (POSTCONDITIONS)
 
+__________________
+
 ####Generic Development Plan
 1. Start by writing a small program with no function definitions
 2. Once the program is working, **encapsulate** it in a function and give it a name
@@ -71,7 +77,9 @@ help(moduleFoo.functionFoo)
 4. Repeat steps 1-3 until you have a set of working functions
 5. Refactor
 
-####Running as SCRIPT or MODULE ==> a self-check
+___________________
+
+####Running a script as SCRIPT or as MODULE ==> a self-check
 - the following tests whether the code is running on it's own or if it's being imported.  
 - if running as a script, then the code in the conditional (the test code) will run.
 - if imported, then the test script remains dormant  
@@ -86,9 +94,11 @@ if __name__ == '__main__':
 	nas = rapper()
 	nas.delay = 0.0001
 	numSided = 5
-	
 	wait_for_user()
 ```
+
+_______________________
+
 ####Command Line Arguments argv
 - ex
 
