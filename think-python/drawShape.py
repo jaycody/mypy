@@ -4,6 +4,9 @@
 """j.stephens  ==> mypy gongfu - Think Python - Chpt 4: Draw 2D shapes of n-fold symmetry
 Dependencies:  poly2.py
 
+command line arguments:
+
+drawShape.py { number of polygon sides , length of each side , number of iterations}
 
 """
 # gets argv from command line
