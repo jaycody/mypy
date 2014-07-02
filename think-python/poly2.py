@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-"""j.stephens  ==> mypy gongfu - Think Python - Chpt 4: Case Study - Interface Design
+"""j.stephens  2014 june ==> mypy gongfu - Think Py - Chpt 4: Interface Design
 
 topics:  
 	encapsulation:  wrapping a piece of code in a function
