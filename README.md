@@ -107,7 +107,7 @@ _______________________
 import sys  
 # helps loops through argvs  
 import fileinput  
-#  
+ 
 def getDimension(argvIndex):  
 	'''takes commnad line arg for number of sides of polygon.  
 	When no input present, uses default num of sides  
@@ -120,13 +120,12 @@ def getDimension(argvIndex):
 		dimension = int(sys.argv[argvIndex])  
 		#print dimension  
 		return dimension  
-#  
+  
 d = getDimension(1)  
 print d  
 print "variable type = ", type(d)  
-#  
+
 #check the range  
-#
 for i in range(len(sys.argv)):
 	print sys.argv[i]
 lengthArgsArray = len(sys.argv)
