@@ -1,0 +1,66 @@
+""" jstephens  2014 jun  ===> mypy gongfu :: python testing
+
+Part I:  doctest - the easiest testing tool
+"""
+
+###doctest exercise
+a series of simple tests demonstrating doctest functionality
+___________
+###command line instructions:
+```
+$ python -m doctest 2-test.txt
+```
+________
+###Test general interpreter arithmetic:
+>>> 2 + 2
+4
+>>> print "Hello doctestWorld"
+Hello doctestWorld
+>>> 10 * 3
+29
+
+# Test the blank line prior to this line
+>>> 1 + 1
+2
+
+>>> print "blank line exceptions?"
+blank line exceptions?
+
+# doctest with modules and such
+>>> import sys
+>>> def test_write():
+...     sys.stdout.write("Hello\n")
+...     return True
+>>> test_write()
+Hello
+True
+
+
+_______________________
+###Expecting Exception
+	- use doctest exception syntax to verify intentional failures 
+	eg Traceback (most recent call last)
+>>> def faulty():
+...     yield 5
+...     return 7
+Traceback (most recent call last):
+SyntaxError: 'return' with argument inside generator (<doctest 2-test.txt[8]>, line 3)
+
+
+____________________
+###Expecting Blank Lines in the output? use  ====>  <BLANKLINE>
+>>> def printAir():
+...     print""
+>>> printAir()
+<BLANKLINE>
+
+
+___________________
+###Using Directives to control doctest
+syntax:   sys.modules # doctest: +DIRECTIVE-FOO
+
+
+
+
+
+

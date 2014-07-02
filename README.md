@@ -46,6 +46,87 @@ ______________________
 - to start the help utility:
 	- type help() in the interpreter
 - enter the name of any module 
+- **to call help on a function from the interpreter**
+>
+```
+help(moduleFoo.functionFoo)
+```
+
+####MISC
+- **encapsulation**:  wrapping a piece of code in a function
+- **generalization**:  adding a parameter to a function
+- **keyword arguments**:  for clarity, include name of parameters in argument list when calling function
+	- ex   
+	```polygon(t=bob ,length=50 ,n=5)```
+- **interface of a function**:  summary of how the function is used.  
+	- what are the parameters?, what is the return value?, etc.
+	- an **interface** is like a contract between a function and a caller.
+		- The CALLER agrees to provide certain parameters (PRECONDITIONS)
+		- The FUNCTION agrees to do certain work  (POSTCONDITIONS)
+
+####Generic Development Plan
+1. Start by writing a small program with no function definitions
+2. Once the program is working, **encapsulate** it in a function and give it a name
+3. **Generalize** the function by giving it appropriate parameters
+4. Repeat steps 1-3 until you have a set of working functions
+5. Refactor
+
+####Running as SCRIPT or MODULE ==> a self-check
+- the following tests whether the code is running on it's own or if it's being imported.  
+- if running as a script, then the code in the conditional (the test code) will run.
+- if imported, then the test script remains dormant  
+
+>
+```
+if __name__ == '__main__':
+	"""test whether code is running as script or as import.
+	Remains silent if being imported.  Instanciates the following code if running as script
+	"""
+	world = NasWorld()
+	nas = rapper()
+	nas.delay = 0.0001
+	numSided = 5
+	
+	wait_for_user()
+```
+####Command Line Arguments argv
+- ex
+
+>
+```
+# gets argv from command line
+import sys
+
+# helps loops through argvs
+import fileinput
+
+def getDimension(argvIndex):
+	'''takes commnad line arg for number of sides of polygon.
+	When no input present, uses default num of sides
+	'''
+
+	if argvIndex+1 > len(sys.argv):
+		return 25
+		
+	else:
+		dimension = int(sys.argv[argvIndex])
+		#print dimension
+		return dimension
+
+d = getDimension(1)
+print d
+print "variable type = ", type(d)
+
+#check the range
+'''
+for i in range(len(sys.argv)):
+	print sys.argv[i]
+
+lengthArgsArray = len(sys.argv)
+print lengthArgsArray
+'''
+```
+
 
 
 
