@@ -67,7 +67,20 @@ _________________
 	- an **interface** is like a contract between a function and a caller.
 		- The CALLER agrees to provide certain parameters (PRECONDITIONS)
 		- The FUNCTION agrees to do certain work  (POSTCONDITIONS)
-
+- **BOOLEANS**
+	- Do NOT compare boolean values to True or False using ==
+```
+Yes:	if greeting:
+No:	if greeting == True:
+Worse:	if greeting is True:
+```
+	- For sequences (strings, lists, tuples) use the fact that empty sequences are false
+```
+Yes:	if not seq:
+	if seq:
+No:	if len(seq):
+	if not len(seq):
+```
 __________________
 
 ####Generic Development Plan
