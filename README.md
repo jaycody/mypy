@@ -102,7 +102,6 @@ _______________________
 ####Adding Command Line Arguments with argv
 - ex
 
->>
 ```
 # gets argv from command line  
 import sys  
