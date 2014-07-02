@@ -23,8 +23,15 @@ ______________________
 
 ###py notes:
 
+####References 
+- [PEP 257] 	- Docstring Conventions
+- [PEP 8] 	- Style Guide for Python Code
+	- A foolish consistency is the hobgoblin of little minds 
+
+_________________________________
+
 ####Docstring Conventions:
-- from [PEP 257 Docstring Conventions]
+
 - "A universal convention supplies all of maintainability, clarity, consistency, and a foundation for good programming habits too..."
 - if a method, function, or class begins with a string literal, it is stored in the object's __doc__ attribute
 - a phrase ending in a period that PRESCRIBES the function or method's effect AS A COMMAND
@@ -151,4 +158,5 @@ print lengthArgsArray
 
 
 
-[PEP 257 Docstring Conventions]:http://legacy.python.org/dev/peps/pep-0257/
+[PEP 257]:http://legacy.python.org/dev/peps/pep-0257/
+[PEP 8]:http://legacy.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds
