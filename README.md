@@ -75,7 +75,8 @@ No:     if greeting == True:
 Worse:  if greeting is True:
 ```
 
-	- For sequences (strings, lists, tuples) use the fact that empty sequences are false
+	- For sequences (strings, lists, tuples) use the fact that empty sequences are false  
+
 ```
 Yes:    if not seq:
         if seq:
