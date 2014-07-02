@@ -99,42 +99,40 @@ if __name__ == '__main__':
 
 _______________________
 
-####Command Line Arguments argv
+####Adding Command Line Arguments with argv
 - ex
 
->
+>>
 ```
-# gets argv from command line
-import sys
+# gets argv from command line  
+import sys  
+# helps loops through argvs  
+import fileinput  
 
-# helps loops through argvs
-import fileinput
-
-def getDimension(argvIndex):
-	'''takes commnad line arg for number of sides of polygon.
-	When no input present, uses default num of sides
-	'''
-
-	if argvIndex+1 > len(sys.argv):
-		return 25
+def getDimension(argvIndex):  
+	'''takes commnad line arg for number of sides of polygon.  
+	When no input present, uses default num of sides  
+	'''  
+  
+	if argvIndex+1 > len(sys.argv):  
+		return 25  
 		
-	else:
-		dimension = int(sys.argv[argvIndex])
-		#print dimension
-		return dimension
+	else:  
+		dimension = int(sys.argv[argvIndex])  
+		#print dimension  
+		return dimension  
+  
+d = getDimension(1)  
+print d  
+print "variable type = ", type(d)  
+  
+#check the range  
 
-d = getDimension(1)
-print d
-print "variable type = ", type(d)
-
-#check the range
-'''
 for i in range(len(sys.argv)):
 	print sys.argv[i]
 
 lengthArgsArray = len(sys.argv)
 print lengthArgsArray
-'''
 ```
 
 
