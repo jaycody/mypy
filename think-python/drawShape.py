@@ -20,19 +20,20 @@ from swampy.TurtleWorld import *
 from poly2 import *
 
 
-world = TurtleWorld()
-bob = Turtle()
-jay = Turtle()
-
-bob.delay = 0.0001
-jay.delay = 0.0001
-
 # Defaults in no command line arg
 defaultShapeSides = 2
 defaultShapeLength = 50
 defaultShapeIterations = 10
 defaultShapeRadius = 10
 defaultShapeAngle = 120
+
+# Defaults for Polygon when no arguments are presented in the command
+defaultPolygonSides = 5
+defaultPolygonLength = 100
+
+# Defaults for Arcs
+defaultArcRadius = 100
+defaultArcAngle = 180
 
 
 # argv tests
@@ -85,31 +86,41 @@ defaultShapeAngle = 120
 		#arc(bob, radius*(shape*.5)+1, angle*shape+1)
 		drawSquare(rt, bob, shape*20)
 """
+def commandLineInstructions():
+	"""Print to console the arguments for shape drawing.  Include specifics
+	from command line arguments
+	"""
+	print ""
+	print "-----------Drawing Shape-----------"
+	print "\n"
+	print "---------To draw polygons or arcs, use command line input as follows:"
+	print ""
+	print "=====> [poly | arc], [ 'n= ' (num of sides for polygon) | 'angle= '(for arc)]"
+	print ""
+	print "_____________>>> example:  $ ./drawShape.py poly n=6"
+	print "_____________>>> example:  $ ./drawShape.py arc angle=180"
+	print "\n", "\n" 
 
 def drawDefaultShape():
 	"""Draw a default shape when no command line arguments are used"""
-	
-	print ""
-	print "-----------Drawing Default Shape-----------"
-	print "\n"
-	print "***To draw polygons or arcs, use command line input as follows:"
-	print "=====> [poly | arc], [num of sides (for polygon) | theta (for arc)]"
-	print "\n", "\n" 
-	
+
 	for shape in range(defaultShapeIterations):
 		polygon(t=bob, n=(defaultShapeSides + shape),
 				length=defaultShapeLength+(defaultShapeLength*(shape/defaultShapeIterations)))
 
 def drawDefaultPoly():
 	"""Draw the default polygon when only 'poly' is detected in commmand line"""
-	print ""
-	print "-----------Drawing Default Polygon-----------"
-	print "\n"
-	print "***To draw polygons or arcs, use command line input as follows:"
-	print "=====> [poly | arc], [ 'n= ' (num of sides for polygon) | 'theta= '(for arc)]"
-	print "_____________>>> example:  $ ./drawShape.py poly n=6"
-	print "\n", "\n" 
-	polygon(t=bob, n=5, length=60)
+	
+	polygon(t=bob, n=defaultPolygonSides, length=defaultPolygonLength)
+
+def drawDefaultArc():
+	"""Draw the default Arc when only 'arc' is detected in commmand line"""
+	
+	arc(t=bob, r=defaultArcRadius, angle=defaultArcAngle)
+	print "drawing arc"
+	print "default Arc Radius = ", defaultArcRadius
+	print "default Arc Angle = ", defaultArcAngle
+
 
 
 def checkArgv():
@@ -119,10 +130,16 @@ def checkArgv():
 	if len(sys.argv) < 2:
 		drawDefaultShape()
 
-	# If the only argument is 'poly', then draw the default polygon	
-	if "poly" in sys.argv and len(sys.argv) == 2:
-			drawDefaultPoly()
+	# Draw the default polygon or arc as specified, otherwise draw default shape
+	elif "poly" in sys.argv and len(sys.argv) == 2:
+		drawDefaultPoly()
+	elif "arc" in sys.argv and len(sys.argv) == 2:
+		drawDefaultArc()
+		print "if statement verfication"
+	else:
+		drawDefaultShape()
 
+	commandLineInstructions()
 
 if __name__ == '__main__':
 

@@ -15,18 +15,28 @@ FLOW:
 """
 
 from swampy.TurtleWorld import *
-
 import math
 
+world = TurtleWorld()
+bob = Turtle()
+jay = Turtle()
+
+world.ca_width = 700
+world.ca_height = 700
+world.canvas = world.ca(world.ca_width, world.ca_height, bg='white')
+
+bob.delay = 0.00001
+jay.delay = 0.00001
 
 def drawSquare(d, t, length):
 	'''Draw square with edge length 'length'.
-	Turtle instance, edge length ===> square 
+		Turtle instance, edge length ===> square 
 
-	d: turn direction (either 'rt' or 'lt')
-	t: Turtle object
-	length:  edge length
+		d: turn direction (either 'rt' or 'lt')
+		t: Turtle object
+		length:  edge length
 	'''
+
 	for i in range(4):
 		fd(t, length)
 		d(t)
@@ -35,16 +45,12 @@ def polygon(t, length, n):
 	'''Draw n-sided regular polygon with edge length 'length'. (vertices of n-sided polygon = 360/n)
 	IN:  Turtle instance, edge length, num of sides.  OUT: n-sided polygon 
 	'''
-
-	# create int version of 'n' for use as iterator
-	# but keep the float version to calculate theta
 	
 	iteratorN = int(n)
 	vertexTheta = 360.0/n
 
 	## OUTSOURCE THE DRAW
 	polyline(t ,n=iteratorN ,length=length ,angle=vertexTheta)
-
 
 def circle(t, r):
 	"""Draw a circle with radius r using polygon() to approximate a circle
@@ -55,41 +61,41 @@ def circle(t, r):
 	arc(t ,r=r, angle=360)
 
 	""" REFACTOR THIS ENTIRE PIECE so that circle() calls arc()
-	### Calculate Circumference of polygon and the length of each side when given r
-	# c = 2 * PI * r
-	circumference = 2 * math.pi * r 
+		### Calculate Circumference of polygon and the length of each side when given r
+		# c = 2 * PI * r
+		circumference = 2 * math.pi * r 
 
-	''' THIS IS VERY INEFFICIENT method for calculating n-sides and length
-	# Let length of each side = 10% of the radius 
-	length = .1 * r
+		''' THIS IS VERY INEFFICIENT method for calculating n-sides and length
+		# Let length of each side = 10% of the radius 
+		length = .1 * r
 
-	### Now solve for number of sides ('n') using polygon circumference and length of each side 
-	# where (length * n) = circumference,
-	n = circumference / length 
-	'''
+		### Now solve for number of sides ('n') using polygon circumference and length of each side 
+		# where (length * n) = circumference,
+		n = circumference / length 
+		'''
 
-	# THIS IS MORE EFFICIENT method of calculating the numbers of sides and length of each
-	n = (circumference / 3 )+ 1
-	length = circumference/n
+		# THIS IS MORE EFFICIENT method of calculating the numbers of sides and length of each
+		n = (circumference / 3 )+ 1
+		length = circumference/n
 
-	# now call the polygon to draw the circle
-	polygon(t, length, n)
+		# now call the polygon to draw the circle
+		polygon(t, length, n)
 	"""
 
 def arc(t, r, angle):
 	"""Draw a section of a circle whose degree of arc = 'angle'.
-	A **generalized** version of circle() with added argument for angle to determine length of arc
+		A **generalized** version of circle() with added argument for angle to determine length of arc
 
-	1. What percentage of the circle must be drawn to make an arc with given angle?
-		percentage of circle to draw = given angle to draw / total degrees of a circle 
-	2. How many sides of a total circle must be drawn to draw that percentage of a circle from #1?
-		- number of sides to draw for given arc = total sides required * fraction of circle to draw
-		- To draw 50 percent of a circle, you'd need 50 percent of the sides required for full circle
-			THUS, when angle to draw = 360, the percentage of circle to draw is 100 
-				--> requiring 100 percent of the sides
-			and when angle to draw is 90, the percentage to draw is 90/360 * 100 (25 percent)
-				--> requiring 25 percent of the sides.	
-	Such that:  fraction of circle to draw = desired angle / 360 degrees
+		1. What percentage of the circle must be drawn to make an arc with given angle?
+			percentage of circle to draw = given angle to draw / total degrees of a circle 
+		2. How many sides of a total circle must be drawn to draw that percentage of a circle from #1?
+			- number of sides to draw for given arc = total sides required * fraction of circle to draw
+			- To draw 50 percent of a circle, you'd need 50 percent of the sides required for full circle
+				THUS, when angle to draw = 360, the percentage of circle to draw is 100 
+					--> requiring 100 percent of the sides
+				and when angle to draw is 90, the percentage to draw is 90/360 * 100 (25 percent)
+					--> requiring 25 percent of the sides.	
+		Such that:  fraction of circle to draw = desired angle / 360 degrees
 	"""
 
 	circumference = 2 * math.pi * r 		# calculate the circumference of circle
@@ -108,10 +114,11 @@ def arc(t, r, angle):
 	## then use given angle of arc to determine number of sides that are required
 	else:
 		nSides = int(n * (angle/360))		
-	
+
+	print nSides, rotateAtEachVertexBy, length
+
 	### Now call polyline() to draw the ARC!
 	polyline(t ,n=nSides ,length=length ,angle=rotateAtEachVertexBy)
-
 
 def polyline(t, n, length, angle):
 	"""Refactors forloop common to arc() and polygon() who now share and call this function. 
@@ -121,15 +128,10 @@ def polyline(t, n, length, angle):
 		fd(t, length)
 		rt(t, angle)
 
-
-
 if __name__ == '__main__':
-	world = TurtleWorld()
-	bob = Turtle()
-	jay = Turtle()
-
-	bob.delay = 0.0001
-	jay.delay = 0.0001
+	"""True if poly2.py is called directly from command line.
+	False if poly2.py is used only as a module in another scropt
+	"""
 
 	numSided = 5
 	lengthSide = 50
@@ -148,6 +150,7 @@ if __name__ == '__main__':
 		pd(bob)
 		#draw another polygon
 		polygon(t=bob ,length=50 ,n=8)
+		arc(t=bob, r=radius, angle=angle)
 
 	wait_for_user()
 
