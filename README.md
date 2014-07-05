@@ -1,3 +1,6 @@
+##[mypy wiki](https://github.com/jayjaycody/mypy/wiki)
+my notes from python gongfu
+
 ###python gongfu  ==>  'work + time/effort'
 
 - Kung fu/Kungfu or Gung fu/Gongfu (Listeni/ˌkʌŋˈfuː/ or /ˌkʊŋˈfuː/; 功夫, Pinyin: gōngfu) is a Chinese term referring to any study, learning, or practice that **requires patience, energy, and time to complete.**  
