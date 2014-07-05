@@ -1,5 +1,7 @@
 ##[mypy wiki](https://github.com/jayjaycody/mypy/wiki)
-my notes from python gongfu
+
+
+__________________________
 
 ###python gongfu  ==>  'work + time/effort'
 
