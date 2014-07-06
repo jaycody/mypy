@@ -21,12 +21,13 @@ world = TurtleWorld()
 bob = Turtle()
 jay = Turtle()
 
+bob.delay = 0.01
+jay.delay = 0.01
+
 world.ca_width = 700
 world.ca_height = 700
 world.canvas = world.ca(world.ca_width, world.ca_height, bg='white')
 
-bob.delay = 0.00001
-jay.delay = 0.00001
 
 def drawSquare(d, t, length):
 	'''Draw square with edge length 'length'.
@@ -113,9 +114,9 @@ def arc(t, r, angle):
 	
 	## then use given angle of arc to determine number of sides that are required
 	else:
-		nSides = int(n * (angle/360))		
+		nSides = int(n * (angle/360.0))		
 
-	print nSides, rotateAtEachVertexBy, length
+	print "nSides = ", nSides, ", rotate at each vertex by ", rotateAtEachVertexBy, " Length of each side = ", length
 
 	### Now call polyline() to draw the ARC!
 	polyline(t ,n=nSides ,length=length ,angle=rotateAtEachVertexBy)
@@ -135,11 +136,14 @@ if __name__ == '__main__':
 
 	numSided = 5
 	lengthSide = 50
-	angle = 500.0
+	angle = 180
 	radius = 100
 
 	numShapes = 5
 
+	arc(t=bob, r=radius, angle=angle)
+
+	"""
 	for shape in range(numShapes):
 		#draw polygon
 		polygon(t=bob ,length=shape*4 ,n=(shape+2))
@@ -151,7 +155,12 @@ if __name__ == '__main__':
 		#draw another polygon
 		polygon(t=bob ,length=50 ,n=8)
 		arc(t=bob, r=radius, angle=angle)
+	"""
 
 	wait_for_user()
+
+
+
+
 
 ###########################################################
