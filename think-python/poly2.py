@@ -99,24 +99,25 @@ def arc(t, r, angle):
 		Such that:  fraction of circle to draw = desired angle / 360 degrees
 	"""
 
-	circumference = 2 * math.pi * r 		# calculate the circumference of circle
+	circumference = 2.0 * math.pi * r 		# calculate the circumference of circle
 	length = .1 * r 					# set length to 10% of the radius
 
 	# Number of sides for complete polygon of 360 degrees
 	n = circumference / length 
 
 	# Calculate the angle the turtle must turn between every edge at the vertex
-	rotateAtEachVertexBy = 360/n
+	rotateAtEachVertexBy = 360.0/n
 
 	##	Calculate the number of sides to actually draw and use the int of that number as for loop range 
-	if angle == 360:					# when drawing a circle, all the nSides are required
+	if angle == 360.0:					# when drawing a circle, all the nSides are required
 		nSides = int(n)  				# assuming angle to draw is 360
 	
 	## then use given angle of arc to determine number of sides that are required
 	else:
 		nSides = int(n * (angle/360.0))		
-
-	print "nSides = ", nSides, ", rotate at each vertex by ", rotateAtEachVertexBy, " Length of each side = ", length
+	print "==>Where the arc is an approximation of a curve created from a polygon with"
+	print " Num of Sides = %d \n Side Length = %f \n Vertex Angle = %f" % (nSides, length, rotateAtEachVertexBy)
+	print ""
 
 	### Now call polyline() to draw the ARC!
 	polyline(t ,n=nSides ,length=length ,angle=rotateAtEachVertexBy)
@@ -129,6 +130,18 @@ def polyline(t, n, length, angle):
 		fd(t, length)
 		rt(t, angle)
 
+def rotateTurtle(t, rotateDirection, rotateAngle):
+
+	if rotateDirection == "rt":
+		print "Right Turn by %f degrees" % (rotateAngle)
+		rt(t, rotateAngle)
+	elif rotateDirection == "lt":
+		print "Left Turn by %f degrees" % (rotateAngle)
+		lt(t, rotateAngle)
+	else:
+		print "input was neither 'rt' nor 'lt' -- so turning right"
+		rt(t, rotateAngle)
+		
 if __name__ == '__main__':
 	"""True if poly2.py is called directly from command line.
 	False if poly2.py is used only as a module in another scropt

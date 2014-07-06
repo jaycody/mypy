@@ -2,22 +2,21 @@
 
 
 """j.stephens  ==> mypy gongfu - Think Python - Chpt 4: Draw 2D shapes of n-fold symmetry
-Dependencies:  poly2.py
+	Dependencies:  poly2.py
 
-command line arguments:
+	command line arguments:
 
-drawShape.py { number of polygon sides , length of each side , number of iterations}
+	drawShape.py { number of polygon sides , length of each side , number of iterations}
 
-TODO:
-[ ] Add variable values to the console print (ex nSides = Foo).
-	- use the method that looks some like print "nSides = %1, length = %2", (n, length)
+	TODO:
+	[x] Add variable values to the console print (ex nSides = Foo).
+		- use the method that looks some like print "nSides = %1, length = %2", (n, length)
 """
 
 # gets argv from command line
 import sys
 # helps loops through argvs
 import fileinput
-
 
 from swampy.TurtleWorld import *
 from poly2 import *
@@ -36,11 +35,229 @@ defaultPolygonLength = 50
 
 # Defaults for Arcs
 # !!!! Make sure the arc angle is a float!
-defaultArcRadius = 100
+defaultArcRadius = 49.75
 defaultArcAngle = 500.0
 
+def commandLineInstructions():
+	"""Print to console the arguments for shape drawing.  Include specifics
+	from command line arguments
+	"""
 
-# argv tests
+	print "\n"
+	print "======> To draw polygons or arcs, use command line input as follows:"
+	print ""
+	print "-----------> [poly | arc], [ (for polygon, enter num of sides) | (for arc, enter angle in degrees)]"
+	print ""
+	print "_______________>>> example:  $ ./drawShape.py poly 6"
+	print "_______________>>> example:  $ ./drawShape.py arc 180"
+	print "\n", "\n" 
+
+def getShapeType(nSides):
+	"""Figure out the name of a polygon when given the number of sides.
+	Return the polygon type as a string (ex "Square")"""
+
+	# Name that shape
+	n = nSides
+	if n == 3:
+		pType = "Triangle"
+	elif n == 4:
+		pType = "Square"
+	elif n == 5:
+		pType = "Pentagon"
+	elif n == 6:
+		pType = "Hexagon"
+	elif n == 7:
+		pType = "Heptagon??  (7 sided)"
+	elif n == 8:
+		pType = "Octagon"
+	elif n == 9:
+		pType = "Uh, 9 sided shape is called a????"
+	else:
+		pType = "shape of unknown type"
+	return pType
+
+def drawDefaultShape():
+	"""Draw a default shape when no command line arguments are used"""
+	
+	print ""
+	print "=======> Without a command line argument, draws default image.....an iterated polygon"
+	print ""
+	print "=====>  Drawing %d iterations of the default shape" % (defaultShapeIterations)
+	for shape in range(defaultShapeIterations):
+		# Create a float version of changing iteration * length thing
+		changingLength = defaultShapeLength+(defaultShapeLength*(float(shape)/float(defaultShapeIterations)))
+		
+		polygon(t=bob, n=(defaultShapeSides + shape),
+				length=changingLength)
+
+		print "Iteration # %d, Number of Sides = %d [%s], Length of Each Side = %d" % (shape, (defaultShapeSides + shape), getShapeType((defaultShapeSides + shape)), changingLength)
+		
+def drawDefaultPoly():
+	"""Draw the default polygon when only 'poly' is detected in commmand line"""
+	
+	# get the name of that shape
+	pType = getShapeType(defaultPolygonSides)
+	
+	print ""
+	print "Drawing the default polygon:  a %s" % (pType)
+	print "_________> Number of Sides = %d,  Length of Each Side = %d" % (defaultPolygonSides, defaultPolygonLength)
+	print ""
+	polygon(t=bob, n=defaultPolygonSides, length=defaultPolygonLength)
+
+def drawDefaultArc():
+	"""Draw the default Arc when only 'arc' is detected in commmand line"""
+	
+	arc(t=bob, r=defaultArcRadius, angle=defaultArcAngle)
+	print "drawing arc"
+	print "default Arc Radius = ", defaultArcRadius
+	print "default Arc Angle = ", defaultArcAngle
+
+def drawPolygon(nSides, sideLength):
+	print ""
+	print "----->Drawing a polygon of %d sides \n Type: %s \n Side length = %d" % (nSides, getShapeType(nSides), sideLength)
+	print ""
+	polygon(t=bob, length=sideLength, n=nSides)
+
+def drawArc(radiusOfCircleForThisArc, arcAngle):
+	print ""
+	print "---->Drawing:  Arc \n angle = %f \n from a circle with radius = %f" % (arcAngle, radiusOfCircleForThisArc)
+	print ""
+	arc(t=bob, r=radiusOfCircleForThisArc, angle=arcAngle)
+
+def drawFlower():
+	""".drawShape.py flower[1] {angle in degrees[2]} {radius of circle[3]} {pedals[4]}
+	"""
+
+	arcAngle = float(sys.argv[2])
+	radiusOfCircleForThisArc = float(sys.argv[3])
+	pedals = int(sys.argv[4])
+	
+	# calculate total angle of 185 degrees to return to starting point
+	# Now Draw as many of these arc as needed
+
+
+	# Iterate pedals
+	for pedal in range(pedals):
+		# Draw Left Edge of Pedal, then turn back and draw other edge
+		for iteration in range(2):
+			drawArc(radiusOfCircleForThisArc, arcAngle)
+			rotateTurtle(t=bob, rotateDirection="rt", rotateAngle=180.0-arcAngle)
+		# Now rotate to the next dedal
+		rotateTurtle(t=bob, rotateDirection="lt", rotateAngle=(360.0/(pedals+1)))
+	
+
+	"""
+	# Iterate pedals
+	for pedal in range(pedals):
+		# Draw Left Edge of Pedal, then turn back and draw other edge
+		drawArc(radiusOfCircleForThisArc, arcAngle)
+		rotateTurtle(t=bob, rotateDirection="lt", rotateAngle=180.0-arcAngle)
+		drawArc(radiusOfCircleForThisArc, arcAngle)
+		# Now rotate to the next dedal
+		rotateTurtle(t=bob, rotateDirection="lt", rotateAngle=(350.0/pedals))
+	"""
+
+
+def checkArgv():
+	"""Process command line arguments.  Act accordingly."""
+
+	# If no cmd line args, draw default shape
+	if len(sys.argv) < 2:
+		drawDefaultShape()
+
+		# Print the instructions when inadequate instructions are added to the command line
+		commandLineInstructions()
+
+	# If arc or poly AND no other argument to specify sides or angle
+	# Otherwise draw the default shape and print the instructions to console
+	elif len(sys.argv) == 2:
+		if "poly" in sys.argv:
+			drawDefaultPoly()
+		elif "arc" in sys.argv:
+			drawDefaultArc()
+		else:
+			drawDefaultShape()
+			commandLineInstructions()
+	# If arc or poly have only one argument (ie angle or nSides)
+	elif len(sys.argv) == 3:
+		if "poly" in sys.argv:
+			############
+			## FIGURE OUT HOW TO CONTEND WITH INVALID LITERALS FOR int() base 10
+			##    - added from the command line (ex ./drawShape.py poly what?)
+			nSides = int(sys.argv[2])
+			print nSides
+			sideLength = defaultPolygonLength
+			drawPolygon(nSides, sideLength)
+		elif "arc" in sys.argv:
+			arcAngle = float(sys.argv[2])
+			print arcAngle
+			print "from checkArgv function, defaultArcRadius = %f" % (defaultArcRadius)
+			radiusOfCircleForThisArc = float(defaultArcRadius)
+			drawArc(radiusOfCircleForThisArc, arcAngle)
+		else:
+			drawDefaultShape()
+			commandLineInstructions()
+
+	elif len(sys.argv) == 4:
+		if "poly" in sys.argv:
+			############
+			## FIGURE OUT HOW TO CONTEND WITH INVALID LITERALS FOR int() base 10
+			##    - added from the command line (ex ./drawShape.py poly what?)
+			nSides = int(sys.argv[2])
+			print nSides
+			sideLength = float(sys.argv[3])
+			drawPolygon(nSides, sideLength)
+		elif "arc" in sys.argv:
+			arcAngle = float(sys.argv[2])
+			print arcAngle
+			print "from checkArgv function, defaultArcRadius = %f" % (defaultArcRadius)
+			radiusOfCircleForThisArc = float(sys.argv[3])
+			drawArc(radiusOfCircleForThisArc, arcAngle)
+		else:
+			drawDefaultShape()
+			commandLineInstructions()
+
+	# {Poly | Arc}, {Sides | Angle}, {Length | Radius}  and now {ITERATTIONS}
+	elif len(sys.argv) == 5:
+		if "poly" in sys.argv:
+			############
+			## FIGURE OUT HOW TO CONTEND WITH INVALID LITERALS FOR int() base 10
+			##    - added from the command line (ex ./drawShape.py poly what?)
+			nSides = int(sys.argv[2])
+			print nSides
+			sideLength = float(sys.argv[3])
+			# now draw iterations of the polygon
+			for iteration in range(int(sys.argv[4])):
+				drawPolygon(iteration+1, sideLength)
+				#drawPolygon(nSides, sideLength)
+		elif "arc" in sys.argv:
+			arcAngle = float(sys.argv[2])
+			print arcAngle
+			print "from checkArgv function, defaultArcRadius = %f" % (defaultArcRadius)
+			radiusOfCircleForThisArc = float(sys.argv[3])
+
+			# calculate total angle of 185 degrees to return to starting point
+			# Now Draw as many of these arc as needed
+			for iteration in range(int(sys.argv[4])):
+				drawArc(radiusOfCircleForThisArc, arcAngle)
+		
+		# now draw the flowers
+		elif "flower" in sys.argv:
+			drawFlower()
+			
+		else:
+			drawDefaultShape()
+			commandLineInstructions()
+
+	# If something sneaks by, the draw the default and print instructions
+	else:
+		print "printed from else: line 162 in checkArgv()"
+		drawDefaultShape()
+		commandLineInstructions()
+
+
+
+# getDimensions Algorithm
 """
 	#########################################################
 	def getDimension(argvIndex):
@@ -90,160 +307,12 @@ defaultArcAngle = 500.0
 		#arc(bob, radius*(shape*.5)+1, angle*shape+1)
 		drawSquare(rt, bob, shape*20)
 """
-def commandLineInstructions():
-	"""Print to console the arguments for shape drawing.  Include specifics
-	from command line arguments
-	"""
-
-	print "\n"
-	print "======> To draw polygons or arcs, use command line input as follows:"
-	print ""
-	print "-----------> [poly | arc], [ (for polygon, enter num of sides) | (for arc, enter angle in degrees)]"
-	print ""
-	print "_______________>>> example:  $ ./drawShape.py poly 6"
-	print "_______________>>> example:  $ ./drawShape.py arc 180"
-	print "\n", "\n" 
-
-def getShapeType(nSides):
-	"""Figure out the name of a polygon when given the number of sides.
-	Return the polygon type as a string (ex "Square")"""
-
-	# Name that shape
-	n = nSides
-	if n == 3:
-		pType = "Triangle"
-	elif n == 4:
-		pType = "Square"
-	elif n == 5:
-		pType = "Pentagon"
-	elif n == 6:
-		pType = "Hexagon"
-	elif n == 7:
-		pType = "Heptagon??  (7 sided)"
-	elif n == 8:
-		pType = "Octagon"
-	elif n == 9:
-		pType = "Uh, 9 sided shape is called a????"
-	else:
-		pType = "shape of unknown type"
-	return pType
-
-
-def drawDefaultShape():
-	"""Draw a default shape when no command line arguments are used"""
-	
-	print ""
-	print "=======> Without a command line argument, draws default image.....an iterated polygon"
-	print ""
-	print "=====>  Drawing %d iterations of the default shape" % (defaultShapeIterations)
-	for shape in range(defaultShapeIterations):
-		# Create a float version of changing iteration * length thing
-		changingLength = defaultShapeLength+(defaultShapeLength*(float(shape)/float(defaultShapeIterations)))
-		
-		polygon(t=bob, n=(defaultShapeSides + shape),
-				length=changingLength)
-
-		print "Iteration # %d, Number of Sides = %d [%s], Length of Each Side = %d" % (shape, (defaultShapeSides + shape), getShapeType((defaultShapeSides + shape)), changingLength)
-		
-
-def drawDefaultPoly():
-	"""Draw the default polygon when only 'poly' is detected in commmand line"""
-	
-	# get the name of that shape
-	pType = getShapeType(defaultPolygonSides)
-	
-	print ""
-	print "Drawing the default polygon:  a %s" % (pType)
-	print "_________> Number of Sides = %d,  Length of Each Side = %d" % (defaultPolygonSides, defaultPolygonLength)
-	print ""
-	polygon(t=bob, n=defaultPolygonSides, length=defaultPolygonLength)
-
-def drawDefaultArc():
-	"""Draw the default Arc when only 'arc' is detected in commmand line"""
-	
-	arc(t=bob, r=defaultArcRadius, angle=defaultArcAngle)
-	print "drawing arc"
-	print "default Arc Radius = ", defaultArcRadius
-	print "default Arc Angle = ", defaultArcAngle
-
-def drawPolygon(nSides, sideLength):
-	print ""
-	print "------------->Drawing %s [polygon of %d sides].  Side length = %d" % (getShapeType(nSides), nSides, sideLength)
-	print ""
-	polygon(t=bob, length=sideLength, n=nSides)
-
-def drawArc(angle):
-	print ""
-	print "------------->Drawing an arc of angle %d" % (angle)
-	print ""
-	arc(t=bob, r=defaultArcRadius, angle=angle)
-
-def checkArgv():
-	"""Process command line arguments.  Act accordingly."""
-
-	# If no cmd line args, draw default shape
-	if len(sys.argv) < 2:
-		drawDefaultShape()
-
-		# Print the instructions when inadequate instructions are added to the command line
-		commandLineInstructions()
-
-	# If arc or poly AND no other argument to specify sides or angle
-	# Otherwise draw the default shape and print the instructions to console
-	elif len(sys.argv) == 2:
-		if "poly" in sys.argv:
-			drawDefaultPoly()
-		elif "arc" in sys.argv:
-			drawDefaultArc()
-		else:
-			drawDefaultShape()
-			commandLineInstructions()
-	# If arc or poly have only one argument (ie angle or nSides)
-	elif len(sys.argv) == 3:
-		if "poly" in sys.argv:
-			nSides = int(sys.argv[2])
-			sideLength = defaultPolygonLength
-			drawPolygon(nSides, sideLength)
-		else:
-			drawDefaultShape()
-			commandLineInstructions()
-
-
-
-
-	else:
-		print "printed from else: line 162 in checkArgv()"
-		drawDefaultShape()
-		commandLineInstructions()
-
-	"""	
-	# If the only argument is either poly or arc, 
-	# Draw the default polygon or arc as specified, otherwise draw default shape	
-	elif "poly" in sys.argv and len(sys.argv) == 2:
-		drawDefaultPoly()
-	elif "arc" in sys.argv and len(sys.argv) == 2:
-		drawDefaultArc()
-	"""
-	"""
-	# Determine if command line input is polygon on n sides or arc of angle foo
-	elif "poly" in sys.argv and len(sys.argv) == 3:
-		# If only 'n' is provided, then use defaultPolygonLength
-		# convert the command line input to int (cleanse it)
-		nSides = int(sys.argv[2])
-		drawPolygon(nSides, defaultPolygonLength)
-	# Determine the angle of arc to draw and convert to float
-	elif "arc" in sys.argv and len(sys.argv) == 3:
-		arcAngle = float(sys.argv[2])
-		drawArc(arcAngle)
-	"""
-
-
-
 
 
 
 
 if __name__ == '__main__':
+
 
 	checkArgv()
 	
