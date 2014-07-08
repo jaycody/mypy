@@ -19,6 +19,7 @@ print_top(filename)
 [ ] create a textAnalyzer class
 """
 
+getattrTest = 109.1
 #############################
 ## HOMEWORK SECTION
 ##########################################################################
@@ -28,7 +29,7 @@ import sys  														#
                       												#
 # Get access to operating system interface and file system			#
 import os    													    #
-    															  #####
+   																  #####
     															   ### 
     															    #  
 def word_count_dict(filename):

@@ -109,6 +109,8 @@ def keeper():
 ################
 flower()
 
+keeper()
+
 #keeper()	
 
 wait_for_user()

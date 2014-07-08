@@ -131,6 +131,12 @@ def polyline(t, n, length, angle):
 		rt(t, angle)
 
 def rotateTurtle(t, rotateDirection, rotateAngle):
+	"""Rotate the drawing point either left or right by a specified amount
+	
+	t: turtle instance
+	rotateDirection:  {'rt' | 'lt'}  #either right turn or left turn
+	rotateAngle: amount of rotation specified in degress (not radians)
+	"""
 
 	if rotateDirection == "rt":
 		print "Right Turn by %f degrees" % (rotateAngle)
