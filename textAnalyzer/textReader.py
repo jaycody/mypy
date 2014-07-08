@@ -24,7 +24,7 @@ print_top(filename)
 ##########################################################################
               														#
 # Get access to argv												#
-import system  														#
+import sys  														#
                       												#
 # Get access to operating system interface and file system			#
 import os    													    #
@@ -104,9 +104,8 @@ def getCommandLineInstructions():
 		# and count the instances of specified string
 		findTotalNumberOfSpecifiedString(sys.argv[1], sys.argv[2])
 	else:
-		print "\n-------Command Line Instructions for mypy.py----------"
 		print ""
-		print "============usage: ./mypy.py { 'textFileFoo', 'stringToFind' } "
+		print "============>>> usage: ./mypy.py { 'textFileFoo', 'stringToFind' } "
 		print ""
 
 if __name__ == "__main__":
