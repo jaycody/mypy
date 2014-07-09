@@ -4,7 +4,7 @@
 
 This script opens and reads text files
 
-TODO:
+Todo:
 [ ] create the following functions:
 
 word_count_dict(filename)
@@ -19,7 +19,6 @@ print_top(filename)
 [ ] create a textAnalyzer class
 """
 
-getattrTest = 109.1
 #############################
 ## HOMEWORK SECTION
 ##########################################################################
@@ -28,7 +27,7 @@ getattrTest = 109.1
 import sys  														#
                       												#
 # Get access to operating system interface and file system			#
-import os    													    #
+import os  # pylint: disable=W0611
    																  #####
     															   ### 
     															    #  
@@ -39,7 +38,8 @@ def word_count_dict(filename):
 
 
 def print_words(filename):
-	"""Prints one per line '<word> <count>' sorted by word for the given filename"""
+	"""Prints one per line '<word> <count>' 
+	sorted by word for the given filename"""
 
 	#Magik Here
 
@@ -69,22 +69,22 @@ def openAndPrintTextFile(textFile):
 
 	f.close()
 
-def findTotalNumberOfSpecifiedString(textFile, stringToFind):
+def findTotalNumberOfSpecifiedString(textFile, string_to_find):
 	"""Opens a text file, searches for all instances of specified string.
-	Counts total number of specified string.  Returns total number of specified string
-	"""
+	Counts total number of specified string.  
+	Returns total number of specified string"""
 
 	totalNumberOfSpecifiedString = 0
 
 	fileObjectToSearch = open(textFile, "r")
 	for eachLine in fileObjectToSearch:
-		if stringToFind in eachLine:
+		if string_to_find in eachLine:
 			totalNumberOfSpecifiedString += 1
-			print "==> Finding %d instances of the string '%s' in %s" % (totalNumberOfSpecifiedString, stringToFind, textFile)
+			print "==> Finding %d instances of the string '%s' in %s" % (totalNumberOfSpecifiedString, string_to_find, textFile)
 			print eachLine
 	print ""
 	print "=============================================================="
-	print "Total instances of '%s' in %s = %d" % (stringToFind, textFile, totalNumberOfSpecifiedString)
+	print "Total instances of '%s' in %s = %d" % (string_to_find, textFile, totalNumberOfSpecifiedString)
 	print ""
 
 	fileObjectToSearch.close()
