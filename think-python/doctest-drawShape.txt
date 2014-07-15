@@ -1,0 +1,11 @@
+This is a doctest based regression suite for drawShapes.py
+Each '>>>' line is run as if in a python shell
+The next line if not '>>>' is the expected results
+
+>>> from drawShape import drawPolygon
+>>> drawPolygon(5, 9)
+<BLANKLINE>
+----->Drawing a polygon of 5 sides 
+ Type: Pentagon 
+ Side length = 9
+<BLANKLINE>

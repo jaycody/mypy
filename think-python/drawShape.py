@@ -113,6 +113,15 @@ def drawDefaultArc():
 	print "default Arc Angle = ", defaultArcAngle
 
 def drawPolygon(nSides, sideLength):
+	"""Draw a polygon with specified number of sides, each side a specified length
+	>>> from drawShape import drawPolygon
+	>>> drawPolygon(5, 9)
+	<BLANKLINE>
+	----->Drawing a polygon of 5 sides 
+	 Type: Pentagon 
+	 Side length = 9
+	<BLANKLINE>
+	"""
 	print ""
 	print "----->Drawing a polygon of %d sides \n Type: %s \n Side length = %d" % (nSides, getShapeType(nSides), sideLength)
 	print ""
@@ -144,18 +153,6 @@ def drawFlower():
 			rotateTurtle(t=bob, rotateDirection="rt", rotateAngle=180.0-arcAngle)
 		# Now rotate to the next dedal
 		rotateTurtle(t=bob, rotateDirection="lt", rotateAngle=(360.0/(pedals+1)))
-	
-
-	"""
-	# Iterate pedals
-	for pedal in range(pedals):
-		# Draw Left Edge of Pedal, then turn back and draw other edge
-		drawArc(radiusOfCircleForThisArc, arcAngle)
-		rotateTurtle(t=bob, rotateDirection="lt", rotateAngle=180.0-arcAngle)
-		drawArc(radiusOfCircleForThisArc, arcAngle)
-		# Now rotate to the next dedal
-		rotateTurtle(t=bob, rotateDirection="lt", rotateAngle=(350.0/pedals))
-	"""
 
 
 def checkArgv():

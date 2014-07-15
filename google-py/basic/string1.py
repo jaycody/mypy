@@ -24,8 +24,22 @@
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
-  # +++your code here+++
-  return
+  '''Determine the exact amount if fewer than 10, otherwise return 'many'
+  >>> donuts(5)
+  'Number of donuts: 5'
+  >>> donuts(12)
+  'Number of donuts: many'
+  '''
+  strCount = str(count)
+  if count < 10:
+
+    s = "Number of donuts: %s" % (strCount)
+   
+  else:
+    s = "Number of donuts: many"
+  
+  return s
+
 
 
 # B. both_ends
@@ -34,13 +48,27 @@ def donuts(count):
 # so 'spring' yields 'spng'. However, if the string length
 # is less than 2, return instead the empty string.
 def both_ends(s):
-  # +++your code here+++
-  return
+  """Find and return the first and last two elements of a string, but if
+  the string is < 2, return the empty string
+  >>> both_ends('stephens')
+  'stns'
+  >>> both_ends('z')
+  ''
+  """  
+  #frontEnd = s[:2]
+  #backEnd = s[-2:]
+  choppedString = s[:2] + s[-2:]
+  if len(s) < 2:
+      choppedString = ""
+      return choppedString
+  else: 
+    return choppedString
+  
 
 
 # C. fix_start
 # Given a string s, return a string
-# where all occurences of its first char have
+# where all occurrences of its first char have
 # been changed to '*', except do not change
 # the first char itself.
 # e.g. 'babble' yields 'ba**le'
@@ -48,8 +76,19 @@ def both_ends(s):
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
-  # +++your code here+++
-  return
+  """Change all but the first occurrence of the first char to '*'
+  >>> fix_start('sensational')
+  'sen*ational'
+  """
+  newString = ""
+  firstChar = s[:1]
+  remainderString = s[1:]
+  for char in remainderString:
+    if char == firstChar:
+      newString += '*'
+    else: newString += char
+  totalString = firstChar + newString
+  return totalString
 
 
 # D. MixUp
@@ -60,8 +99,22 @@ def fix_start(s):
 #   'dog', 'dinner' -> 'dig donner'
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
-  # +++your code here+++
-  return
+  """This is close to my interview question from homejoy
+  Swap the first two chars of each string.
+  Return a string that preserves the order in which strings are given
+  >>> mix_up('world', 'cup')
+  'curld wop'
+  >>> mix_up('santana', 'row')
+  'rontana saw'
+  """
+  aStringsChars = a[:2]
+  bStringChars = b[:2]
+  
+  newA = bStringChars + a[2:]
+  newB = aStringsChars + b[2:]
+
+  mixedUp = newA + " " +newB
+  return mixedUp
 
 
 # Provided simple test() function used in main() to print
