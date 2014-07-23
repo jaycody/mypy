@@ -1,9 +1,4 @@
-#! /usr/bin/env python -tt
-"""j stephens - mypy gongfu
-use doctest for all functions
-$ python -m doctest -v list1.py
-"""
-
+#!/usr/bin/python -tt
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
@@ -26,21 +21,13 @@ $ python -m doctest -v list1.py
 # and last chars of the string are the same.
 # Note: python does not have a ++ operator, but += works.
 def match_ends(words):
-  """Determine how many strings from the list are longer than 2 chars 
-  and also share first and last chars.
-  >>> match_ends(['jose', 'jokej', 'jecklerj', 'noten', 'jalj'])
-  4
-  """
+  # +++your code here+++
   count = 0
-
-  for word in words:
-    if len(word) >= 2:
-      if word[:1] == word[-1:]: 
+  for string in words:
+    if len(string) >= 2:
+      if string[0] == string[-1]:
         count += 1
-
   return count
-  
-
 
 
 # B. front_x
@@ -51,27 +38,22 @@ def match_ends(words):
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
 def front_x(words):
-  """Sort lists such that x leads the sort order before alphanumeric.
-  >>> front_x(['alpha', 'charli', 'beta', 'xanadu'])
-  ['xanadu', 'alpha', 'beta', 'charli']
-  """
-  xList = []
-  otherList = []
-  combinedList = []
-  for item in words:
-    if item[:1] == 'x':
-      xList.append(item)
+  # +++your code here+++
+  listX = []
+  listNotX = []
+
+  for string in words:
+    if string[0] == "x":
+      listX.append(string)
     else:
-      otherList.append(item)
-  
-  xList = sorted(xList)
-  otherList = sorted(otherList)
-  # Debug
-  combinedList = xList + otherList
-  #print "xlist = ", xList
-  #print "otherList = ", otherList
-  #print "combinedList = ", combinedList
-  return combinedList
+      listNotX.append(string)
+
+  listX = sorted(listX)
+  listNotX = sorted(listNotX)
+
+  words = listX + listNotX
+
+  return words
 
 # C. sort_last
 # Given a list of non-empty tuples, return a list sorted in increasing
@@ -80,20 +62,12 @@ def front_x(words):
 # [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
-  """Sort a list of tuples according to the last element of each tuple
-  >>> sort_last([(1, 7), (1, 3), (3, 4, 5), (2, 2)])
-  [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
-  """
+  # +++your code here+++
+  sortedTuples = sorted(tuples, key = last)
+  return sortedTuples
 
-  sortedList = sorted(tuples, key=custom_key)
-  return sortedList
-
-def custom_key(tupleKey):
-  """Find and return the last element of a tuple
-  >>> custom_key((1, 7))
-  7
-  """
-  return tupleKey[-1]
+  def last(tup):
+    return tup[-1]
 
 
 # Simple provided test() function used in main() to print
