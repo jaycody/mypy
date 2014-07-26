@@ -6,7 +6,10 @@
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
 
-"""Wordcount exercise
+"""jstephens - pyfu - 2014 july
+test file:  Volumes/SubThree/Dropbox/documents/logKext_keyLogger/out_logFile.txt
+
+Wordcount exercise
 Google's Python class
 
 The main() below is already defined and complete. It calls print_words()
@@ -201,34 +204,34 @@ def remove_char(word):
   if word == None:
     return
   elif '(' in word:
-    newWord = word.replace('(','')  # replace open paran with no space
+    newWord = word.replace('(', '')  # replace open paran with no space
     remove_char(newWord)
   elif ')' in word:
-    newWord = word.replace(')','')  # replace open paran with no space
+    newWord = word.replace(')', '')  # replace open paran with no space
     remove_char(newWord)
   elif "'" in word:
-    newWord = word.replace("'","")  # replace open paran with no space
+    newWord = word.replace("'", "")  # replace open paran with no space
     remove_char(newWord)
   elif "," in word:
-    newWord = word.replace(",","")  # replace open paran with no space
+    newWord = word.replace(",", "")  # replace open paran with no space
     remove_char(newWord)
   elif "." in word:
-    newWord = word.replace(".","")  # replace open paran with no space
+    newWord = word.replace(".", "")  # replace open paran with no space
     remove_char(newWord)
   elif "!" in word:
-    newWord = word.replace("!","")  # replace open paran with no space
+    newWord = word.replace("!", "")  # replace open paran with no space
     remove_char(newWord)
   elif "`" in word:
     newWord = word.replace("`", "")
     remove_char(newWord)
   elif "?" in word:
-    newWord = word.replace("?","")  # replace open paran with no space
+    newWord = word.replace("?", "")  # replace open paran with no space
     remove_char(newWord)
   elif ":" in word:
-    newWord = word.replace(":","")  # replace open paran with no space
+    newWord = word.replace(":", "")  # replace open paran with no space
     remove_char(newWord)
   elif ";" in word:
-    newWord = word.replace(";","")  # replace open paran with no space
+    newWord = word.replace(";", "")  # replace open paran with no space
     remove_char(newWord)
 
   else:
