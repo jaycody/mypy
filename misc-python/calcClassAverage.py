@@ -1,3 +1,13 @@
+#!/usr/bin/env python -tt
+
+"""jstephens - pyfu - 2014 july
+
+Tool to help teachers calculate a class average
+"""
+
+## Define each student as a dictionary 
+##        define keys as specific assingments
+##        define values as the scores
 lloyd = {
     "name": "Lloyd",
     "homework": [90.0, 97.0, 75.0, 92.0],

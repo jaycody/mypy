@@ -1,3 +1,4 @@
+
 fileRef = open('numbers.txt')
 allLines = fileRef.readlines()
 for line in allLines:

@@ -204,6 +204,29 @@ def palindrome_wrapper(str1, str2):
 	else:
 		return palindrome(str1, str2)
 
+def recurs_exponent(base, exponent):
+	"""Recursively calculate the product when the base is raised to the given exponent.
+	>>> recurs_exponent(5, 2)
+	25
+	"""
+	## Non-recursively looks like this:
+	"""
+	total = base
+	for i in range (exponent-1):
+		total = total * base
+	print total
+	"""
+
+	if exponent == 0:
+		return 1
+	if exponent == 1:
+		return base
+	if exponent > 1:
+		return base * recurs_exponent(base, exponent-1)
+
+
+
+
 def main():
 	"""Main function for handling all recursive functions in this script
 	"""
@@ -214,6 +237,7 @@ def main():
 		print "      lenRecur [aStr]"
 		print "      isIn [char] [aSt]"
 		print "      palindrome [str1] [str2]"
+		print "      recurs_exponent [base] [exponent]"
 		sys.exit(1)
 	
 	function = sys.argv[1]
@@ -246,7 +270,15 @@ def main():
 			isPalindrome = palindrome_wrapper(str1, str2)
 			print isPalindrome
 
-	#if function == ''
+	if function == 'recurs_exponent':
+		if len(sys.argv) != 4:
+			print "usage: ./recursion.py recurs_element [base] [exponent]"
+		else:
+			base = int(sys.argv[2])
+			expo = int(sys.argv[3])
+			ans = recurs_exponent(base, expo)
+			print ans
+	
 	else:
 		print 'unknown function: ' + function
 

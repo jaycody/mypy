@@ -1,6 +1,11 @@
-#Harrisons Python Tutorial
+#!/usr/bin/env python -tt
 
-#Techniques for Printing to Console
+"""jstephens - pyfu - 2013
+
+
+Harrison tutorial covering commands, functions and classes
+written in the form of printing techniques.
+"""
 
 #____
 print "script"
