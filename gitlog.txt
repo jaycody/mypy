@@ -1,0 +1,72 @@
+72dc7b8 created recursion.py in misc py exercises for all recursive exercises in edX MIT600
+3413ea4 completed keylogger mimicker
+2e91a86 updated keylogger
+e8cda37 updated wordcount scripts
+6a753fe created mimic dictionary
+ddeb31d finished dictionary and list problem sets from google - py
+4dd2bea finished problem sets for string manipulation
+25c6726 solved string1 and string2 problem sets
+99ed3fe using pylint
+cd08467 added getattr examples to wiki
+42bb606 no more before we go
+01dbe5a added __init__.py module in an attempt to place the new directory 'textAnalyzer' in the pythonpath
+d0a8f6f added functions to textReader script for counting words in text, creating dictionaries from search results, printing found words, sorting according to tuples, etc. '#Magik Here' for all new functions.  Fill in the blank.  Saving for tomorrow
+7103f48 added the ability to specify the search term  when parsing through each line of a text file
+1406c04 added flower drawing feature
+9906225 Merge branch 'master' of github.com:jayjaycody/mypy added command line interface to specify drawing either a polygon or an arc and either the number of sides of the polygon or the angle of the arc in degrees
+2069be2 added command line interface to specify drawing either a polygon or an arc and either the number of sides of the polygon or the angle of the arc in degrees.
+50dd94b Update README.md
+01318d1 Update README.md
+30e4e3e added default shapes for cases when no command line arguments are used
+7a89894 added default shape drawing feature to drawShape.py.  Also added basic argv inputs for drawing polygons and arcs
+e335919 Update README.md
+9553490 Update README.md
+d6247f8 Update README.md
+9af20b2 Update README.md
+e14e442 Update README.md
+e37142a Update README.md
+cdb7a60 Update README.md
+cb80772 Update README.md
+40e57c9 Update README.md
+8d1a280 Update README.md
+0de7866 added basic instructions for command line inputs needed to control drawShape.py
+6356b78 started doctest exercises
+aca6c01 Update README.md
+28eb751 Update README.md
+5fa33db Update README.md
+60b5d65 added argvIndex functions
+3679fa0 added argv command line input for drawShape.  index[1] = number of ssides, index[2] = length of sides, and index[3] = iterator for number of shapes through which to loop
+2c30b60 added drawShape script which calls on poly2 for basic shape functions arc() ,polygon() ,etc
+4d347cc added 'notes' section to README  --- for mypy learn learn gongfu
+72b7a52 added 'notes' subheading to README.  started polygon drawing exercieses from scratch as refresher
+a17cc12 started a flower function
+8819527 refacftor
+3870fb9 Merge branch 'master' of github.com:jayjaycody/mypy
+7bf56c7 created flower function that uses previous functions to create n-fold radial symmetries
+7e7919e updated docstrings.  created compiled verson .pyc
+88567fd created Keeper function containing a sweet spot of variables for nested polygons
+164705d found a sweet spot.  saving this one.  nested polygons
+c873393 mypolygon now draws something special.   also added __init__.py to allow secondary directory search
+5c9f704 appending python path.  Added __init__.py to each subdirectory of /jayjaycody/ allowing PYTHONPATH access to subdirectories
+45020c6 added interlocking polygons and arcs inside for loops.  Oh yeah
+8e44358 making polygons with swampy
+89a4a33 includes command line setup
+0de128c using functions and argv to draw ascii graphic
+e7d1018 added practice exercise that calculates average grades from fictitious class
+d889584 added script that can call up my python cheat sheet from command line
+75bf9d9 added misc exercises and examples
+f679d27 added README to the misc-python exercises directory
+a103918 added my python cheat sheet
+1c38549 added exercises from Python-TheHardWay tutorials
+6852adc removed myLog texts
+5b5952e added excersises from Google's 2-day Python workshop
+226104a Function Objects exercise 3.4
+b8e0562 added first exercise to think-python
+dd152b6 added README to the python-programming text
+d3a7e7c added README to the python-programming text
+37ec214 added README the complexity science text
+6c06bbd added README for the Think Python text
+f6bf94a created directories for each python text
+640bd93 updated README with work + time/effort
+a052acc added to README the definition of gongfu.
+f306e14 central location for my python kung-fu
