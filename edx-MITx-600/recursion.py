@@ -156,9 +156,6 @@ def palindrome(str1, str2):
 	else:
 		return False
 	##---------------------
-
-	>>> palindrome('god', 'dog')
-	True
 	"""
 
 	# if first letter of str1 == first char of str2, then call recursively,
@@ -187,6 +184,11 @@ def palindrome_wrapper(str1, str2):
 	Base Case 1. Are str1 and str2 equal?  
 	Base Case 2. Are the strings of length 1?
 	3. If we can proceed, then  call the palindrome function.
+	
+	>>> palindrome_wrapper('god', 'dog')
+	True
+	>>> palindrome_wrapper('tact', 'cat')
+	False
 	"""
 	str1 = str1.lower()
 	str2 = str2.lower()
@@ -194,6 +196,8 @@ def palindrome_wrapper(str1, str2):
 	if str1 == str2:
 		return False
 
+	elif len(str1) != len(str2):
+		return False
 	elif len(str1) == 1 or len(str2) == 1:
 		return False 
 
@@ -242,6 +246,7 @@ def main():
 			isPalindrome = palindrome_wrapper(str1, str2)
 			print isPalindrome
 
+	#if function == ''
 	else:
 		print 'unknown function: ' + function
 
