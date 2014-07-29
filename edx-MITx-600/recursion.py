@@ -53,41 +53,152 @@ def isIn(char, aStr):
 	----
 	>>> isIn('a', 'Jason')
 	True
+	>>> isIn('n', 'Bodhi')
+	False
 	"""
 
 
-	###########################################################
-	# base case
-	aStr = sorted(aStr)
-	n = int(len(aStr)/2)
-	print "n = %d" % n
-
-	if char == aStr[n]:
-		return True
-
-	if char == aStr[len(aStr)/2]:
-		return True
-
-	elif char != aStr[len(aStr)/2]:
-		# if char is greater than center point, then divide upper half and repeat
-		if char > aStr[len(aStr)/2]:
-			# then the new list of chars to search is from half way to the end
+	# DEBUG BOOLEAN ('--test')
+	DEBUG = False
+	if len(sys.argv) > 4:
+		if sys.argv[4] == '--test':
+			DEBUG = True
+		elif sys.argv[4] != '--test':
+			print "\n unknown option: " + sys.argv[4]
+			print "-------->>> usage for 5th param: ./recursion isIn char aStr { --test | NULL }"
+			sys.exit(1)
 		
-			return isIn(char, aStr[len(aStr)/2:])
+	# SORT the string FIRST:  (returns a list)
+	if DEBUG:
+		print "\n-------> char to find: '%s'    \n---> string to search:  %s" % (char, aStr)
 
-		elif char < aStr[len(aStr)/2]:
-			return isIn(char, aStr[:len(aStr)/2])
+	aStr = sorted(aStr)
+	# convert the sorted list back to a string by joining on empty spaces
+	aStr = ''.join(aStr)
 
+	# Caclulate the string's midpoint index in order to find the midway character
+	midwayIndex = len(aStr)/2
+	midwayChar = aStr[midwayIndex]
+	
+	# DEBUG (sys.argv[4] == '--test')
+	if DEBUG:
+		print ""
+		print "---> SORTED string to search = ", aStr
+		print "midwayIndex = ", midwayIndex
+		print "midwayChar = ", midwayChar
+
+		print ""
+		print "-> start of string to midway point ===> \n      aStr[:midwayIndex] = ", aStr[:midwayIndex]
+		print "\n-> midway point to end of string  ===> \n     aStr[midwayIndex:] = ", aStr[midwayIndex:]
+		print ""
+
+
+
+	###### base cases ############################
+
+	# Base Case 1:  Char is not the final letter
+	if len(aStr) == 1:
+		if char != aStr[0]:
+			# DEBUG
+			if DEBUG:
+				print "length of string is 1 and char: '%s' is NOT '%s'" % (char, aStr[0])
+				print "-----Returning False"
+			return False
+
+	# Base Case 2:  Zero chars remain in string
+	if len(aStr) == 0:
+		return False
+
+	# Base Case 3:  Char IS in the string
+	if char == aStr[len(aStr)/2]:
+
+		## DEBUG ('--test') ##########################
+		if DEBUG:
+			print "is '", char, "' midway in string", aStr, "?"
+			print "yes:", char, "=", midwayChar
+		#############################################
+		#print 'return true'
+		return True
+
+	#########################################
+
+
+	###### Recursive Calls ###########################
+	
+	if char > aStr[len(aStr)/2]:
+		if DEBUG:
+			print char, "is greater than", midwayChar
+			print "\n reduce searchable string from:  ", aStr
+		aStr = aStr[len(aStr)/2:]
+		if DEBUG:
+			print "to:  ", aStr
+			print " ------ and repeat ------"
+		return isIn(char, aStr)
+
+	if char < aStr[len(aStr)/2]:
+		if DEBUG:
+			print char, "is less than", midwayChar
+			print "\n reduce searchable string from:  ", aStr
+		aStr = aStr[:len(aStr)/2]
+		if DEBUG:
+			print "to:  ", aStr
+			print " ------ and repeat ------"
+		return isIn(char, aStr)
+
+def palindrome(str1, str2):
+	"""Determine (recursively) if two strings are palindromes of each other.
+
+	# Does the first letter of str1 == first letter of str2?
+
+	# Write a recursive function that does this::: ====>
+	if str1 == str2[::-1]:
+		return True
+	else:
+		return False
+	##---------------------
+
+	>>> palindrome('god', 'dog')
+	True
+	"""
+
+	# if first letter of str1 == first char of str2, then call recursively,
+	#   else, return falst
+
+	if len(str1) > 1 and len(str2) > 1:
+
+		if str1[0] == str2[-1]:
+			str1 = str1[1:]
+			str2 = str2[:-1]
+			return palindrome(str1, str2)
 		else:
 			return False
 	else:
-		return False
+		return True
+		
 
 	sys.exit(0)
-	###########################################################
 
+def palindrome_wrapper(str1, str2):
+	"""Assist the palindrome function by handling the initial check of str1 and str2.
+	A wrapper function to handle the global scope of the first iteration
+		Where to use the wrapper function:
+			1. a str of len 1 is a palindrome 
+			2. equal strings cannot be (meaningful palindromes of each other)
+	Base Case 1. Are str1 and str2 equal?  
+	Base Case 2. Are the strings of length 1?
+	3. If we can proceed, then  call the palindrome function.
+	"""
+	str1 = str1.lower()
+	str2 = str2.lower()
 
+	if str1 == str2:
+		return False
 
+	elif len(str1) == 1 or len(str2) == 1:
+		return False 
+
+	else:
+		return palindrome(str1, str2)
 
 def main():
 	"""Main function for handling all recursive functions in this script
@@ -96,8 +207,9 @@ def main():
 	if len(sys.argv) < 3:
 		print "usage:  ./recursion.py function_name input"
 		print "====functions:"
-		print "      lenRecur(aStr)"
-		print "      isIn(char, aStr)"
+		print "      lenRecur [aStr]"
+		print "      isIn [char] [aSt]"
+		print "      palindrome [str1] [str2]"
 		sys.exit(1)
 	
 	function = sys.argv[1]
@@ -105,13 +217,31 @@ def main():
 	if function == 'lenRecur':
 		lenStr = lenRecur(sys.argv[2])
 		print "Length of string: '%s' = %d" % (sys.argv[2], lenStr)
-	#elif function == '_______':
+
 	if function == 'isIn':
-		if len(sys.argv) == 4:
-			resultsIsIn = isIn(sys.argv[2], sys.argv[3])
-			print resultsIsIn
+		if len(sys.argv) >= 4:
+			#resultsIsIn = isIn(sys.argv[2], sys.argv[3])
+			char = sys.argv[2]
+			aStr = sys.argv[3]
+			resultsIsIn = isIn(char, aStr)
+			print "\n ====>   Is '%s' in string: %s  ??\n" % (char, aStr)
+			if resultsIsIn:
+				print "-------- YES:  '%s' IS in string: %s \n" % (char, aStr)
+			else:
+				print "-------- NO:  '%s' is NOT in string: %s \n" % (char, aStr)
+			
 		else:
 			print 'usage:  ./recusion.py isIn char aStr'
+	
+	if function == 'palindrome':
+		if len(sys.argv) != 4:
+			print "usage:  ./recursion.py palindrome str1 str2"
+		elif len(sys.argv) == 4:
+			str1 = sys.argv[2]
+			str2 = sys.argv[3]
+			isPalindrome = palindrome_wrapper(str1, str2)
+			print isPalindrome
+
 	else:
 		print 'unknown function: ' + function
 
