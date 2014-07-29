@@ -6,6 +6,7 @@ Variety of number manipulations
 """
 
 import sys
+import math
 
 # my home made module
 import file_reader
@@ -103,12 +104,36 @@ def isPrime(n):
 	# Define Prime:  divisible by 1 and by itself only.
 	#for i in range(100):
 
+def recursive_isPrime(n, possibleDivisor):
+	"""Determine if a given number is prime using recursive method
+	[ ] Start this one from scratch after a full nights rest...........
+ 	"""
+
+	if n < 2:
+		print "%d is not prime." % n
+		return False
+	
+	if possibleDivisor == n:
+		print "%d is prime." % n
+		return True
+
+	if n % possibleDivisor == 0: 
+		print "%d is not prime." % n
+		return False
+
+	if possibleDivisor <= math.sqrt(n):
+		print "%d is prime." % n
+		return True
+
+	return recursive_isPrime(n, possibleDivisor + 1)
+
+	
 
 def main():
 	"""Handle command line args.
 	"""
 	lenInput = len(sys.argv)
-	if lenInput != 3:
+	if lenInput > 4:
 		print "usage:  ./math_exercises.py [--function name] [--input filename | NULL]"
 		sys.exit(1)
 
@@ -130,6 +155,9 @@ def main():
 
 	if function == '--isPrime':
 		isPrime(int(sys.argv[2]))
+
+	if function == '--recursive_isPrime':
+		recursive_isPrime(int(sys.argv[2]), int(sys.argv[3]))
 	else:
 		print "unknown function: " + function
 		sys.exit(1)
