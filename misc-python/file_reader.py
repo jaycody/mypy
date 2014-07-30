@@ -12,11 +12,27 @@ import sys
 def read_file():
 	"""Creates a file object and reads through the content of a file
 	"""
+	defaultFile = 'numbers.txt'
+
 	if len(sys.argv) == 2: 
 		filename = sys.argv[1]
-		fileRef = open(filename)
-	else:
-		fileRef = open('numbers.txt')
+		try:
+			fileRef = open(filename)
+		except IOError, e:
+			print "\nunkown file: ", filename, "\n --> Switching to default file: ", defaultFile
+			print str(e)
+			filename = defaultFile
+			ans = raw_input("y/n?")
+			if str(ans) != 'y':
+				print "\nexiting"
+				sys.exit(0)
+
+
+	#else:
+	#	filename = ('numbers.txt')
+
+	
+	fileRef = open(filename)
 
 	allLines = fileRef.readlines()	
 
@@ -50,3 +66,8 @@ if __name__ == '__main__':
 
 
 #export_refFile()
+
+
+
+
+
