@@ -99,6 +99,10 @@ def custom_key(tupleKey):
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
 def test(got, expected):
+  """
+  >>> 's' == 's'
+  True
+  """
   if got == expected:
     prefix = ' OK '
   else:
