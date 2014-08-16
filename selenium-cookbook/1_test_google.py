@@ -23,6 +23,10 @@ class TestGooglePage(unittest.TestCase):
 	def test_google_exists(self):
 		self.assertIn("Google", self.driver.title)
 
+	def test_search_results(self):
+		searchBox = self.find_element_by_id() 
+
+
 	def tearDown(self):
 		self.driver.close()
 
