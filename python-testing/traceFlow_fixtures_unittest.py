@@ -28,7 +28,7 @@ def setUpModule():
 def tearDownModule():
 	traceFlow('module: %s' % __name__)
 
-## Control Flow Tracer Utlity
+## Control Flow Tracer d
 def traceFlow(currentContext):
 	callingFunction = inspect.stack()[1][3]
 	#print " %s  ==> %s()" % (currentContext, callingFunction)

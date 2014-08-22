@@ -127,6 +127,8 @@ def test_that_user_can_login(driver, username, password):
     """
     Test that the user identified by the given credentials can login
     """
+    
+    ################## NOW THAT'S THE FLAVA ###################
     login_page = LoginPage(driver)
  
     login_page.open()
@@ -136,7 +138,7 @@ def test_that_user_can_login(driver, username, password):
  
     # Make sure we got past the login page
     assert not login_page.on_page(), "Couldn't get past the login page"
- 
+    ################## NOW THAT'S THE FLAVA ###################
  
 def main():
     try:
