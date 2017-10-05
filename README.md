@@ -1,9 +1,9 @@
-##[mypy wiki](https://github.com/jayjaycody/mypy/wiki)
+## [mypy wiki](https://github.com/jayjaycody/mypy/wiki)
 
 
 __________________________
 
-###python gongfu  ==>  'work + time/effort'
+### python gongfu  ==>  'work + time/effort'
 
 - Kung fu/Kungfu or Gung fu/Gongfu (Listeni/ˌkʌŋˈfuː/ or /ˌkʊŋˈfuː/; 功夫, Pinyin: gōngfu) is a Chinese term referring to any study, learning, or practice that **requires patience, energy, and time to complete.**  
 
@@ -26,16 +26,16 @@ export PS1='\[\033[0;34m\][\[\033[0;31m\]\H \[\033[1;35m\]\u \[\033[0;32m\]\w\[\
 
 ______________________
 
-###py notes:
+### py notes:
 
-####References 
+#### References 
 - [PEP 257] 	- Docstring Conventions
 - [PEP 8] 	- Style Guide for Python Code
 	- A foolish consistency is the hobgoblin of little minds 
 
 _________________________________
 
-####Docstring Conventions:
+#### Docstring Conventions:
 
 - "A universal convention supplies all of maintainability, clarity, consistency, and a foundation for good programming habits too..."
 - if a method, function, or class begins with a string literal, it is stored in the object's __doc__ attribute
@@ -56,7 +56,7 @@ _________________________________
 
 _________________
 
-####the help utility ==> help()
+#### the help utility ==> help()
 - to start the help utility:
 	- type help() in the interpreter
 - enter the name of any module 
@@ -68,7 +68,7 @@ help(moduleFoo.functionFoo)
 
 _________________
 
-####MISC
+#### MISC
 - **encapsulation**:  wrapping a piece of code in a function
 - **generalization**:  adding a parameter to a function
 - **keyword arguments**:  for clarity, include name of parameters in argument list when calling function
@@ -96,7 +96,7 @@ _________________
 	```
 __________________
 
-####Generic Development Plan
+#### Generic Development Plan
 1. Start by writing a small program with no function definitions
 2. Once the program is working, **encapsulate** it in a function and give it a name
 3. **Generalize** the function by giving it appropriate parameters
@@ -105,7 +105,7 @@ __________________
 
 ___________________
 
-####Running a script as SCRIPT or as MODULE ==> a self-check
+#### Running a script as SCRIPT or as MODULE ==> a self-check
 - the following tests whether the code is running on it's own or if it's being imported.  
 - if running as a script, then the code in the conditional (the test code) will run.
 - if imported, then the test script remains dormant  
@@ -125,7 +125,7 @@ if __name__ == '__main__':
 
 _______________________
 
-####Adding Command Line Arguments with argv
+#### Adding Command Line Arguments with argv
 - ex
 
 ```
