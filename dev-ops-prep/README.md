@@ -4,9 +4,9 @@ __
 
 ## Exercises
 ### as they come to mind:
-- helloworld, oh yeah
-- recreate cat
-- modulus something something
+- [x] helloworld, oh yeah
+- [ ] recreate cat
+- [ ] modulus something something
 
 ## Pythonic notes
 
