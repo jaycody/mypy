@@ -4,6 +4,8 @@ __
 
 ## Unit testing with nose2
 [nose2 docs](http://nose2.readthedocs.io/en/latest/usage.html)  
+### Run all tests in a project
+- from project root: ```nose2```
 ### Run individual tests
 - to run individual test script, pass in test script name using dot notation
      - ```nose2 calculator_app.test.unit.test_calculate_this```
