@@ -5,16 +5,18 @@ __
 ## Unit testing with nose2
 [nose2 docs](http://nose2.readthedocs.io/en/latest/usage.html)  
 ### Run individual tests
-- to run individual test script, pass in test script name using dot notation 
+- to run individual test script, pass in test script name using dot notation
      - ```nose2 calculator_app.test.unit.test_calculate_this```
 - to run individual test cases, use ':' and specify the index of the test case (NOTHING YET)
-     - ```nose2 calculator_app.test.unit.test_calculate_this:1``` 
+     - ```nose2 calculator_app.test.unit.test_calculate_this:1```
 
 ### nose2 options
-```nose2 -v  #verbose```
-```nose2 -h  #help```
-```nose2 -s  #start directory```
-```nose2 -t  #top directory```
+```
+nose2 -v  #verbose
+nose2 -h  #help
+nose2 -s  #start directory
+nose2 -t  #top directory
+```
 
 
 ## Exercises
