@@ -29,10 +29,10 @@ ______________________
 ### py notes:
 
 #### References 
-- [PEP 257] 	- Docstring Conventions
 - [PEP 8] 	- Style Guide for Python Code
 	- A foolish consistency is the hobgoblin of little minds 
-
+- [PEP 20] - get Pythonic 
+- [PEP 257] 	- Docstring Conventions
 _________________________________
 
 #### Docstring Conventions:
@@ -165,3 +165,4 @@ print lengthArgsArray
 
 [PEP 257]:http://legacy.python.org/dev/peps/pep-0257/
 [PEP 8]:http://legacy.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds
+[PEP 20]:https://www.python.org/dev/peps/pep-0020/
