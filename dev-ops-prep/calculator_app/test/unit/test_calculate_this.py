@@ -2,12 +2,12 @@
 
 # usage from calculator_app/: python test/unit/calculate_this_test.py
 
-import unittest2
+import unittest
 
 from calculate_this import Calculate
 
 
-class TestCalculate(unittest2.TestCase):
+class TestCalculate(unittest.TestCase):
 
     def setUp(self):
         self.calc = Calculate()
@@ -32,4 +32,4 @@ class TestCalculate(unittest2.TestCase):
 
 
 if __name__ == '__main__':
-    unittest2.main()
+    unittest.main()

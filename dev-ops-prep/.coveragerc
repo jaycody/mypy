@@ -1,23 +1,53 @@
 # .coveragerc to control coverage.py
 
 [run]
+branch = True
+
+data_file = resultsfile
+
+debug =
+  #data
+  #config
+  #sys
+
+#omit =
+#  */__init__.py
+#  *init__.py
+#  ~/jaycody/mypy/dev-ops-prep/__init__.py
+#  ~/jaycody/mypy/dev-ops-prep/calculator_app/__init__.py
+#  dev-ops-prep/__init__.py
+
 #source = ~/jaycody/mypy/dev-ops-prep/
 #         ~/jaycody/mypy/dev-ops-prep/calculator_app/calculate_this.py
 
 #include = test/*
 #          test_*.py
 
-omit = ./__init__.py
+
+
 
 
 
 [report]
+# Regexes for lines to exclude from consideration
 exclude_lines =
+    # Have to re-enable the standard pragma
     pragma: no cover
+
+    # Don't complain about missing debug-only code:
     def __repr__
-    if self.debug:
-    if settings.DEBUG
+    if self\.debug
+
+    # Don't complain if tests don't hit defensive assertion code:
     raise AssertionError
     raise NotImplementedError
+
+    # Don't complain if non-runnable code isn't run:
     if 0:
     if __name__ == .__main__.:
+
+
+[html]
+directory = reports
+
+title = report
