@@ -9,7 +9,7 @@ class Calculate(object):
                             .format(type(x), type(y)))
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': #pragma: no cover
     calc = Calculate()
     result = calc.add_inputs(2, 2)
     print result

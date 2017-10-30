@@ -1,0 +1,10 @@
+# .coveragerc to control coverage.py
+
+[run]
+#source = ~/jaycody/mypy/dev-ops-prep/
+#         ~/jaycody/mypy/dev-ops-prep/calculator_app/calculate_this.py
+
+#include = test/*
+#          test_*.py
+
+omit = ./__init__.py
