@@ -1,4 +1,4 @@
-# dev-ops-prep
+# devops
 > gettin' Pythonic up in this mug
 __
 
