@@ -1,6 +1,11 @@
 #! usr/bin/python -tt
 
-# iterative functions that calculates the exponential base using successive multiplication
+'''
+Iterative function that calculates the exponential base^exp by successively adding
+the result of a secondary function that calculates the product of two values by 
+successively adding one value to itself.
+'''
+
 
 import sys
 
