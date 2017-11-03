@@ -1,0 +1,21 @@
+#!/usr/bin/php
+<?php
+
+require_once 'DayTrader.php';
+
+if (!isset($argv[1])) { 
+    die('Missing input parameter' . PHP_EOL); 
+}
+
+$prices = preg_split('/[\s,]+/', $argv[1]);
+array_map('floatval', $prices);
+$trader = new DayTrader($prices);
+$transaction = $trader->calcBestTrade();
+
+if (is_array($transaction) && count($transaction) == 2) {
+    printf("Buy:  $%01.2f\nSell: $%01.2f\n", $transaction[0], $transaction[1]);
+} elseif (is_array($transaction) && empty($transaction)) {
+    echo "No profitable buy/sell transaction was found";
+} else {
+    throw new Exception('Result of calcBestTrade() should be an array with 0 or 2 elements');
+}
