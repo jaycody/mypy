@@ -9,7 +9,8 @@ recursive function that returns the product of two multipliers
 import sys
 
 def recur_mul(multiply_this, this_many_times):
-
+    print 'here again?'
+    
     # base case
     if this_many_times == 1:
         return multiply_this
