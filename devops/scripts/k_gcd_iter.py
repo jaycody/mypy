@@ -1,6 +1,8 @@
 #! /usr/bin/python -tt
 
 '''
+from MITx 6.00.1x via edX
+
 Recursively calculate the GREATEST COMMON DIVISOR
 
 ...where the GCD of two positive integers is the largest integer that
