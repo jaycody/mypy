@@ -1,8 +1,8 @@
-#! usr/bin/python -tt
+#! /usr/bin/python -tt
 
 '''
 Iterative function that calculates the exponential base^exp by successively adding
-the result of a secondary function that calculates the product of two values by 
+the result of a secondary function that calculates the product of two values by
 successively adding one value to itself.
 '''
 
@@ -29,12 +29,12 @@ def itermul(add_this_to_itself, this_many_times):
     For each of the exp loops in the iterexp function, a call is made to the itermul function
     such that successive addition is used to find a product, and successive calls to this function are used to caclulate an exponent via successive multiplication
     '''
- 
+
     results_from_itermul = 0
     for i in xrange(this_many_times):
         results_from_itermul = add_this_to_itself + results_from_itermul
     return results_from_itermul
-        
+
 
 if len(sys.argv) == 3:
     final_result = iterexp(int(sys.argv[1]), int(sys.argv[2]))

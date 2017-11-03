@@ -1,4 +1,6 @@
-#! usr/bin/pyhthon -tt
+#! /usr/bin/python -tt
+
+
 
 '''
 recursive function that returns the product of two multipliers

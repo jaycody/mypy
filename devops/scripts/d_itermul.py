@@ -1,4 +1,4 @@
-#! usr/bin/python -tt
+#! /usr/bin/python -tt
 
 """itermul - interative multiplication by successive addition"""
 
