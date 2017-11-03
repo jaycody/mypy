@@ -7,6 +7,10 @@ recursive function that calculates and returns n-bang
 import sys
 
 def n_bang_recursive(n):
+    '''
+    assumes n is an int > 0
+    returns n!
+    '''
     #base case
     if n == 1:
         return n
