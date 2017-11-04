@@ -46,9 +46,12 @@ Return: [11.00, 13.00] OR [4.00, 6.00]
 3. The constructor should accept an array of stock prices (floats) that are in chronological order
 4. The calcBestTrade() method should return an array containing the buy & sell price, or an empty array if a profit cannot be made on the stock
 5. To run the program:
+```
 ./makemoney.php "price1, price2, price3, …"
-For example:
+
+# For example:
 ./makemoney.php "1.00, 2.00, 3.00, 4.00, 5.00"
+```
 6. To run the unit tests:
 ```
 # Standard data set:
