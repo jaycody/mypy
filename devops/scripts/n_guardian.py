@@ -10,7 +10,7 @@ Function that guards against unwanted inputs.
         - v2: returns var type and message too
 '''
 
-def guardian_approves_of(input_as_list):
+def approve_of(input_as_list):
     '''
     accepts list
     returns boolean
