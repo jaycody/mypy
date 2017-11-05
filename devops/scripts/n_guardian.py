@@ -34,6 +34,26 @@ def guardian_approves_of(input_as_list):
         print 'Guardian received your input... \n\t...but Guardian expects a list of positive integers. Try again!'
         return 0
 
-#my_list = [1,2,-3,'my']
-my_list = 'oops'
-guardian_approves_of(my_list)
+
+def is_pos_int(input_as_int):
+    '''
+    returns True is input is positive int
+    otherwise returns False
+    '''
+    if isinstance(input_as_int, int):
+        if input_as_int > 0:
+            return True
+
+    return False
+
+
+if __name__ == '__main__':
+    print '1 is a postive int.', is_pos_int(1)
+    print '-1 is a postive int.', is_pos_int(-1)
+    print "'1' is a postive int.", is_pos_int('1')
+
+
+    #my_list = [1,2,-3,'my']
+    my_list = 'oops'
+    my_int  = 1
+    #guardian_approves_of(my_list)
