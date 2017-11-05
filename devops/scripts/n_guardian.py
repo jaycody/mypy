@@ -1,28 +1,22 @@
 #! /usr/bin/python -tt
 
 '''
-Function that guards against unwanted inputs.
-    Allows lists of positive integers to pass.
-    Rejects all else
-
-    Accepts a list
-    Returns a boolean (for now)
-        - v2: returns var type and message too
+The Guardian protects us from unwanted inputs.
 '''
 
 def approve_of(input_as_list):
     '''
-    accepts list
-    returns boolean
-    True: if all vars in list are positive integers
-    False: if anything else
+    Accepts a list.
+    Returns true if all vars in list are positive integers.
     '''
     ## if it's a list
     if isinstance(input_as_list, list):
         print 'Guardian received your list of inputs...'
         ## and if all items in the list are ints
+        ## GENERATOR 
         if all(isinstance(item, int) for item in (input_as_list)):
             ## and if all ints are positive
+            ## GENERATOR!!!
             if all(item > 0 for item in (input_as_list)):
                 print '\t...and has verified inputs as positive ints. \n   You may proceed'
                 return True
@@ -37,8 +31,7 @@ def approve_of(input_as_list):
 
 def is_pos_int(input_as_int):
     '''
-    returns True is input is positive int
-    otherwise returns False
+    Returns true for a positive int.
     '''
     if isinstance(input_as_int, int):
         if input_as_int > 0:
