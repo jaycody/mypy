@@ -5,18 +5,20 @@ Calculates Fibonacci numbers for any positive int
 '''
 
 def fib(n):
-    # check type
+    '''
+    expects a postive int
+    '''
+    
+    # assert positive int
+    assert type(n)==int and n >= 0
 
     # Base Case
     if n == 0 or n == 1:
         return 1
+
     # Recursive Case
     else:
-        print n 
         return fib(n-1) + fib(n-2)
 
-
-
-
-
-print fib(10)
+for i in xrange(20):
+    print "For round: " + str(i) + '  Fibonacci=' + str(fib(i))
