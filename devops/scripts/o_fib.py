@@ -6,9 +6,10 @@ Calculates Fibonacci numbers for any positive int
 
 def fib(n):
     '''
-    expects a postive int
+    Expects a postive int
+    For each iteration n, prints Fibonacci number
     '''
-    
+
     # assert positive int
     assert type(n)==int and n >= 0
 
@@ -20,5 +21,8 @@ def fib(n):
     else:
         return fib(n-1) + fib(n-2)
 
-for i in xrange(20):
-    print "For round: " + str(i) + '  Fibonacci=' + str(fib(i))
+
+
+if __name__ == '__main__':
+    for i in xrange(20):
+        print "For round: " + str(i) + '  Fibonacci=' + str(fib(i))
