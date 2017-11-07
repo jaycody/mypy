@@ -24,19 +24,7 @@ def lenrecur(count_this):
             total += 1
             return recursive_count(count_this[1:], total)
 
-
-
-
     return initialize(count_this)
-
-    #return 'Final count: {}'.format(total)
-
-
-
-
-
-#print "Test 1: ", lenrecur('test Pass')
-
 
 #print lenrecur('all')
 test_string = 'Dada, I told my class the story about how I took your bishop this weekend when we played chess'
@@ -49,7 +37,3 @@ if len(test_string) == calculated_length:
     print "\t---->PASS<----"
 else:
     print "\t---->FAIL<----"
-
-#print "Test 1: ", lenrecur('')
-
-#print "Test 2: ", lenrecur(('test Pass',))
