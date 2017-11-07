@@ -16,7 +16,7 @@ def isPalindrome(string_to_check):
         """
 
         ans = ''
-
+        chars_to_clean = chars_to_clean.lower()
         for c in chars_to_clean:
             if c in 'abcdefghijklmnopqrstuvwxyz':
                 ans += c
@@ -53,6 +53,7 @@ def isPalindrome(string_to_check):
 
 
 isPalindrome('bcdefggfedcb')
+isPalindrome('bcdEfGGfEdcb')
 isPalindrome('bcdefgtyfffytgfedcb')
 isPalindrome('bcdefggfedc56yfa4   234b')
 isPalindrome('bcdefgrhsthsjgfedcb')
