@@ -31,7 +31,8 @@ def isPalindrome(string_to_check):
 
         # base case
         ## MAKE PEP 8 COMPLIANT: EMPTY SEQUENCES EVALUATE TO FALSE. USE: if not mylist:
-        if len(s) == 0 or len(s) == 1:
+        if not s or len(s) == 1:
+        ## if len(s) == 0 or len(s) == 1: ## <-- original code. replaced with 'if not s or len(s) == 1'
             print '\nYES! String: ' + string_to_check + ' is a Palindrome\n'
             return True
 
