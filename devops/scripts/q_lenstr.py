@@ -11,11 +11,15 @@ New:
 
     Default Parameters for Functions
 
-    Function queries:
+    Query your function!:
         myfunction.func_name
         myfunction.func_defaults
         myfunction.func_code
         myfunction.func_globals
+
+    Query and object's ID
+        objectID = id(object)
+        functionID = id(function())
 """
 
 
