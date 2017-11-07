@@ -1,25 +1,7 @@
 #! /usr/bin/python -tt
 
-""" Calculates and returns the length of an input string.
+""" Iterative function that calculates and returns the length of an input string.
 Validates data type first.
-"""
-
-"""
-New:
-    Printing with str.format()  !!!!
-        print '\nFunction id={}'.format(id(fast_string_length()))
-
-    Default Parameters for Functions
-
-    Query your function!:
-        myfunction.func_name
-        myfunction.func_defaults
-        myfunction.func_code
-        myfunction.func_globals
-
-    Query and object's ID
-        objectID = id(object)
-        functionID = id(function())
 """
 
 
@@ -35,6 +17,7 @@ def fast_string_length(s="requires input"):
     return count
 
 
+## Add these to the test script
 test_string = "blammmmooooh"
 print "\nTest_string: '" + test_string + "' has element count of ", fast_string_length(test_string)
 
