@@ -5,21 +5,22 @@ ______________
 
 ## my py exer-sy ...zez
 Pulling problem sets and insights from various places, como:
-- MIT 600x via edX[1] (the archived course from 2015)
+- [MIT 600x via edX][1] (the archived course from 2015)
 - Think Python text
 - Google Python class
 
 ## PEP8 NOTES
 - default param assignments have no space
-```myfunction(space=None)
+```
+myfunction(space=None)
 ```
 - use string methods over slice to query string elements
 ```
 # returns booleans
-str.startswith('char')
-str.startswith('char', element_start_num)
-
+str.startswith('char') # or ('char', startIndex, endIndex)
 str.endswith('char')
+# not
+if str[0:3] == 'char'
 ```
 - check type with isinstance(var, type)
   - (not type(var) == )
@@ -37,11 +38,21 @@ if isintance(mystrin, basestring)
 - check if length == 0 WITHOUT using len(mylist)
   - the trick: an empty list return false
 ```
-# Returns false if len of my list is zero
-if mylist:
+# YES
+if mylist:      # Returns false if len 0
+if not mylist:  # Returns true if len 0
 
-# NOT
+# NO
 if len(mylist) == 0:
+```
+- don't add extra white space to align assignments
+  - for the record, I disagree with this
+```
+# NO
+myvar         = 10
+qb            = 'Paul Crewe'
+mylongestvard = 'Mean Machine'
+film          = 'The Longest Yard'
 ```
 - check for existence of ALL types (because some types may be hiding (eg container))
 ```
@@ -55,22 +66,27 @@ if x:
 ## what I learned today:
 ### Printing with str.format()  !!!!
 >
-```print '\nFunction id={}'.format(id(fast_string_length()))
+```
+print '\nFunction id={}'.format(id(fast_string_length()))
 ```
 
 ### Default Parameters for Functions
-```myfunction(default_value=100)
+```
+myfunction(default_value=100)
 ```
 
 ### Query your function!:
 ```
-      myfunction.func_name
-      myfunction.func_defaults
-      myfunction.func_code
-      myfunction.func_globals
+# get name and defaults
+name = myfunc.func_name
+values = myfunc.func_defaults
+
+# get other cool stuff
+code = myfunc.func_code
+these = myfunc.func_globals
 ```
 
-### Query and object's ID
+### GET ID
 ```
 objectID = id(object)
 
