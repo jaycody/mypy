@@ -23,15 +23,14 @@ str.endswith('char')
 if str[0:3] == 'char'
 ```
 - check type with isinstance(var, type)
-  - (not type(var) == )
 ```
 # this
 if isinstance(myvar, int):
 # not
 if type(var) == type(int):
 ```
-- check for string type with *basestring*
-  - basestring accounts for both ASCII and unicode, whereas 'string' accounts only for ASCII in Python 2, and will return false if the string is in unicode
+- check for string type with ***basestring***
+  - basestring accounts for both ASCII and unicode, whereas ***string*** accounts only for ASCII in Python 2, and will return false if the string is in unicode
 ```
 if isintance(mystrin, basestring)
 ```
