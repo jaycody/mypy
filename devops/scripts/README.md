@@ -1,0 +1,85 @@
+# practice practice practice
+> Actually, to get to Carnegie Hall, go up to Houston St, head west 1/2 block and make a right on 1st Ave. Go up to 4th St and make a left. Head west on 4th, cross Broadway and keep going until you hit Washington Square Park. Cut across the park, go through the arch then head uptown on 5th Ave. Stay on 5th Ave until you pass Madison Square Garden, then make a left onto West 29th. Go up 1/2 block and stop at the Ace Hotel for a cup a coffee.  From there, continue west on 29th for 2 more blocks, make a right on 7th Ave, and head straight for Times Square (don't let those jaded New Yorkers deter you, either!). March right on through Time Square and keep going until you get to within a few blocks of Central Park. There you'll find Carnegie Hall on the east side of 7th Ave between West 56th and West 57th.
+
+______________
+
+## my py exer-sy ...zez
+Pulling problem sets and insights from various places, como:
+- MIT 600x via edX[1] (the archived course from 2015)
+- Think Python text
+- Google Python class
+
+## PEP8 NOTES
+- default param assignments have no space
+```myfunction(space=None)
+```
+- use string methods over slice to query string elements
+```
+# returns booleans
+str.startswith('char')
+str.startswith('char', element_start_num)
+
+str.endswith('char')
+```
+- check type with isinstance(var, type)
+  - (not type(var) == )
+```
+# this
+if isinstance(myvar, int):
+# not
+if type(var) == type(int):
+```
+- check for string type with *basestring*
+  - basestring accounts for both ASCII and unicode, whereas 'string' accounts only for ASCII in Python 2, and will return false if the string is in unicode
+```
+if isintance(mystrin, basestring)
+```
+- check if length == 0 WITHOUT using len(mylist)
+  - the trick: an empty list return false
+```
+# Returns false if len of my list is zero
+if mylist:
+
+# NOT
+if len(mylist) == 0:
+```
+- check for existence of ALL types (because some types may be hiding (eg container))
+```
+# accounts for existing 'x' of type that returns false
+if x is not None:
+
+# NOT
+if x:
+```
+
+## what I learned today:
+### Printing with str.format()  !!!!
+>
+```print '\nFunction id={}'.format(id(fast_string_length()))
+```
+
+### Default Parameters for Functions
+```myfunction(default_value=100)
+```
+
+### Query your function!:
+```
+      myfunction.func_name
+      myfunction.func_defaults
+      myfunction.func_code
+      myfunction.func_globals
+```
+
+### Query and object's ID
+```
+objectID = id(object)
+
+functionID = id(function())
+```
+
+
+
+
+
+
+[1]:https://courses.edx.org/courses/course-v1:MITx+6.00.1x_7+3T2015/course/
