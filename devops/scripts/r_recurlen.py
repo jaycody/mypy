@@ -5,7 +5,9 @@
 
 
 def len_recur(string_to_count):
-    """Well, putting the test results print statements in the central function
+    """Recursively counts the length of a string and returns an int? 
+
+    Well, putting the test results print statements in the central function
     is probably a no no. I got a bit carried away, like I was full throttle
     doing brodies in a infinitely large cornfield.
     """
@@ -22,7 +24,7 @@ def len_recur(string_to_count):
 def test_len_recur(test_num=1, feed_it_this='default_string'):
     """Various tests for the len_recur function
     """
-    
+
     print ''
     # test 1: expected successs
     if test_num <= 1:
