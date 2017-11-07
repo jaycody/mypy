@@ -37,7 +37,8 @@ def isPalindrome(string_to_check):
 
         # compare first and last chars:
         #### MAKE PEP8 COMPLIANT BY REPLACING SLICES WITH STRING METHODS startswith(), endswith
-        if s[0] == s[-1]:
+        if s.startswith(s[-1]):
+        #if s[0] == s[-1]:
             #print 'recursive case! String is now: ' + s
             return isPal(s[1:-1])
         else:
