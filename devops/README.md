@@ -2,6 +2,17 @@
 > gettin' Pythonic up in this mug
 __
 
+## exercises as they come to mind
+- [] quicksort
+- [] return to hanoi
+- [] recreate cat
+
+## plan ol' unittest ala Python
+
+## some general rules and tips of testing:
+from [docs.python-guide.org][1]  
+- If you are in the middle of a development session and have to interrupt your work, it is a good idea to write a broken unit test about what you want to develop next. When coming back to work, you will have a pointer to where you were and get back on track faster.
+
 ## Unit testing with nose2 and green
 - [green](https://github.com/CleanCut/green)
 - [nose2 docs](http://nose2.readthedocs.io/en/latest/usage.html)  
@@ -226,7 +237,7 @@ _____
 ### as they come to mind:
 - [x] helloworld, oh yeah
 - [ ] recreate cat
-- [ ] modulus something something
+- [x] modulus something something
 
 ## Pythonic notes
 
@@ -234,3 +245,8 @@ _____
 - Think Python
 - Google Python class
 - PEP 8 & PEP 20
+
+
+---------------------
+
+[1]:(http://docs.python-guide.org/en/latest/writing/tests/)

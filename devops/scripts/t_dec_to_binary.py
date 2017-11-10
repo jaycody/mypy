@@ -17,12 +17,7 @@ def convert_to_binary(x):
     4. repeat until len x == 0
     5. return binary digit
     """
-
-
     return x
-
-
-
 
 
 
@@ -38,12 +33,13 @@ def test_convert_to_binary():
     return "If you exist, return {} ---> {} returned".format(t1, convert_to_binary(t1))
 
 
+if __name__ == '__main__':
+    print test_convert_to_binary()
 
 
 
 
 
-print test_convert_to_binary()
 
 
 #print convert_to_binary('10')
