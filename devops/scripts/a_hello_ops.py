@@ -16,16 +16,16 @@ def print_hello_devops_to_console(repeat_print=1000):
         print 'hello devops... for the {}th time!'.format(i)
 
 def get_input():
-    """return the user inputs from CLI or prompt
+    """return int version user inputs from CLI or prompt
     """
 
-    # use console input, otherwise use default
-    if len(sys.argv) > 1:
-        return int(sys.argv[1])
-
-    else:
-        return int(raw_input('How many?: '))
+    return int(raw_input('How many?: '))
 
 if __name__ == '__main__':
 
-    print_hello_devops_to_console(get_input())
+    # get argv in this block to avoid collecting
+    #     avoid collecting CLI input when runing
+    if len(sys.argv) == 2:
+        print_hello_devops_to_console(int(sys.argv[1]))
+    else:
+        print_hello_devops_to_console(int(get_input()))
