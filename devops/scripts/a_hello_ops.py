@@ -13,13 +13,16 @@ def print_hello_devops_to_console(repeat_print=1000):
     """
 
     for i in xrange(repeat_print):
-        print 'hello devops... for the {}th time!'.format(i)
+        print 'hello devops... for the {}th time!'.format(i+1)
+    return repeat_print
 
-def get_input():
+def get_input(x=None):
     """return int version user inputs from CLI or prompt
     """
-
-    return int(raw_input('How many?: '))
+    if x is not None:
+        return x
+    else:
+        return int(raw_input('How many?: '))
 
 if __name__ == '__main__':
 
