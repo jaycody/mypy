@@ -9,7 +9,7 @@ def check_this(x):
         return None, x
 
     if x < 0:
-        return None, -1
+        return None, x
 
     return 'PASS', 'input: {} is a positive integer'.format(x)
 
@@ -25,8 +25,8 @@ def test_check_this(val_to_check):
         return results
 
     ## if negative
-    elif results[1] == -1:
-        return '\tNope! {} is as negative as Julian in Less Than Zero'.format(val_to_check)
+    elif results[1] < 0:
+        return '\tNope! {} is as negative as Julian in Less Than Zero'.format(results[1])
 
     ## if NOT INT
     else:
@@ -40,3 +40,6 @@ if __name__ == '__main__':
     for testable_item in T:
         # run test on that testable_item
         print next(G)
+
+    ## Separate the internal logic from the business logic
+    ## can this work as a tool in another module? or in the python iterpreter
