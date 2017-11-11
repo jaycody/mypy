@@ -5,6 +5,7 @@
 
 
 def fizzbuzz(x):
+    """Print fizz or buzz or fizzbuzz as needed"""
 
     # print fizz and buzz if modulo 5 & 3 both return 0
     # NICE, this check range thing actually worked!!!
@@ -26,7 +27,6 @@ def fizzbuzz(x):
 
 def test_fizzbuzz(x=15):
     """Test the fizzbuzzness"""
-
 
     ## Test if module 3 remainder 0 prints fizz
     print fizzbuzz(3)
