@@ -23,12 +23,12 @@ class TestCalculate(unittest.TestCase):
     ###############################
     ### verify it breaks as expected
 
-    def test_add_inputs_raises_type_error_for_non_ints(self):
-        self.assertRaises(TypeError, self.calc.add_inputs, 'Hello', 'Again')
+    def test_add_input_fails_as_expected(self):
+        """Test that sending strings forces correct error message"""
 
-    def test_add_inputs_raises_attribute_error_on_non_existent_method_call(self):
-        with self.assertRaises(AttributeError):
-            [].get
+        response = self.calc.add_inputs('h', 'i')
+        expected = type('str'), type('str')
+        self.assertEqual(expected, response[0:2])
 
 
 if __name__ == '__main__':
