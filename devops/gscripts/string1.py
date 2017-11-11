@@ -45,9 +45,6 @@ def both_ends(s):
   # 1. return first 2 chars
   else:
       return s[0:2] + s[-2:]
-  # 2. return last 2 chars
-  # 3. and then
-
 
 
 # C. fix_start
@@ -73,8 +70,6 @@ def fix_start(s):
 
       else:
           new_s = new_s + s[index]
-        #  if s[index] == 's':
-        #      new_s += '*'
 
   return new_s
 
@@ -88,7 +83,9 @@ def fix_start(s):
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
   # +++your code here+++
-  return
+  # concate a and b but with a space in between
+  new_s = b[0:2] + a[2:] + ' ' + a[0:2] + b[2:]
+  return new_s
 
 
 # Provided simple test() function used in main() to print
