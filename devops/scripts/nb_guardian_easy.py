@@ -18,7 +18,6 @@ def test_check_this(val_to_check):
     """Compares check_this function's results with expected"""
 
     print '\nChecking input: {} ----->'.format(val_to_check)
-
     results = check_this(val_to_check)
 
     ## if PASS
@@ -29,16 +28,15 @@ def test_check_this(val_to_check):
     elif results[1] == -1:
         return '\tNope! {} is as negative as Julian in Less Than Zero'.format(val_to_check)
 
-
     ## if NOT INT
     else:
         return '\tNope! Input: {} is of type: {}'.format(val_to_check, type(val_to_check))
 
-
-
-
 if __name__ == '__main__':
 
-    print test_check_this(10)
-    print test_check_this(-10)
-    print test_check_this('h')
+    ## GENERATOR runs each test with test values from list T
+    T = [10, -10, 'h', [], {}, '', 1.0, None, check_this('16'), '\n']
+    G = (test_check_this(test_val) for test_val in T)
+    for testable_item in T:
+        # run test on that testable_item
+        print next(G)
