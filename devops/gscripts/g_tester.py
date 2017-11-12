@@ -10,18 +10,15 @@ def test(got, expected):
     Report back please
     """
 
-    results = ''
     if got == expected:
         results = '  OK'
     else:
         results = '   X'
-
-    return '{:5s}  got: {:10s} expected: {}'.format(results, repr(got), repr(expected))
-
+    print '{:5s}  got: {:10s} expected: {}'.format(results, repr(got), repr(expected))
 
 if __name__ == '__main__':
 
 
 
-    print test(do(10), 10)
-    print test(do(10), 9990)
+    test(do(10), 10)
+    test(do(10), 9990)
