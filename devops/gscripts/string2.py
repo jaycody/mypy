@@ -38,10 +38,17 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-  # +++your code here+++
-  #1. find not or bad
-  # look for 'n', then ask if the next two chars are 'ot'
-  ## compare start index. if bads_index > nots_index
+    """Declare variables for indeces and a new string.
+    Assign the string argument to the new string var.
+    Find substrings 'not' and 'bad'.
+    Save and compare their starting index. Which appears first?
+    If subtext conditions are not met:
+        Return the new string (equal to s argument):
+    If 'bads' starting index is greater than 'nots' starting index,
+        Then replace the substring between 'n----------------bads' with 'good'
+        Save the concatenated new string into new string variable
+    Return the new string 
+    """
     nots_index = 0
     bads_index = 0
     good_string = s
@@ -55,13 +62,6 @@ def not_bad(s):
         good_string = s[:nots_index] + 'good' + s[bads_index+3:]
 
     return good_string
-
-    #return s[i:i+3] + ' starts at index: ' +  repr(i)
-    #return False
-
-  #2. determine if it's the first encounter
-  #3. determines which happens first
-  #4. if 'not' appears first, then swap 'not bad' with 'good'
 
 
 # F. front_back
