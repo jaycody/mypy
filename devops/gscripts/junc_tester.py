@@ -40,5 +40,10 @@ if __name__ == '__main__':
     test_suite = [func1_values,
                 func2_values]
 
-    for got, expected in func2_values:
-        print test(got, expected)
+    for test_values in test_suite:
+        for got, expected in test_values:
+            print test(got, expected)
+
+
+#    for got, expected in func2_values:
+#        print test(got, expected)
