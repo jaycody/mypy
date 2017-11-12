@@ -1,6 +1,12 @@
 #! /usr/bin/python -tt
 
-"""test runner"""
+"""test runner
+
+test_suite: list of test cases for each function
+test case: 2-value-tuple with 1) string for function name and 2) a list of test_values
+test_values: a list of got,expected value pairs saved as tuples
+
+"""
 
 
 def do(x):
