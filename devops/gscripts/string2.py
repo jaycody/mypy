@@ -47,7 +47,7 @@ def not_bad(s):
     If 'bads' starting index is greater than 'nots' starting index,
         Then replace the substring between 'n----------------bads' with 'good'
         Save the concatenated new string into new string variable
-    Return the new string 
+    Return the new string
     """
     nots_index = 0
     bads_index = 0
@@ -70,11 +70,25 @@ def not_bad(s):
 # If the length is odd, we'll say that the extra char goes in the front half.
 # e.g. 'abcde', the front half is 'abc', the back half 'de'.
 # Given 2 strings, a and b, return a string of the form
-#  a-front + b-front + a-back + b-back
+#a-front + b-front + a-back + b-back
 def front_back(a, b):
-  # +++your code here+++
-  return
+    """Checks for string with even num chars and returns two halves"""
+    # if even split into front and back, save strings
+    both = a, b
+    l_all = []
 
+    for s in both:
+        # lame solution! address the string separately
+        if len(s) % 2 == 0:
+            l_all.append(s[:len(s)/2])
+            l_all.append(s[len(s)/2:])
+        else:
+            l_all.append(s[:(len(s)/2)+1])
+            l_all.append(s[(len(s)/2)+1:])
+
+
+    #a-front[0] + b-front[2] + a-back[1] + b-back[3]
+    return '{}{}{}{}'.format(l_all[0], l_all[2], l_all[1], l_all[3])
 
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
