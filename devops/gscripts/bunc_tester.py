@@ -8,16 +8,31 @@ def check_if(x=None):
 
 
 def test(got=None, expected=None):
-    return got, expected
+    """Compares the actual against the expected and prints test results.
+
+    got: results from function under test
+    expected: known good
+    """
+
+    flag = ''
+    if got == expected:
+        flag = ' OK'
+    else:
+        flag = '  X'
+
+    results  = "{:5s} got: {:22s} expected: {}".format(flag, repr(got), repr(expected))
+
+    return results
+
+
 
 
 
 def main():
     #print check_if('to check'),
-
-    print test(check_if('sent_to_test'), 'sent_as_expected')
-
-
+    print 'tests:'
+    print test(check_if('sent_to_test_and_w'), 'sent_as_expected')
+    print test(check_if('got_expected'), 'got_expected')
 
 if __name__ == '__main__':
     main()
