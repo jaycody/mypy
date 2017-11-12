@@ -21,8 +21,16 @@
 # and last chars of the string are the same.
 # Note: python does not have a ++ operator, but += works.
 def match_ends(words):
-  # +++your code here+++
-  return
+  """Return the number of strings in a list
+  Where the string length is >= 2
+  AND the 1st and last chars are the same
+  """
+  count = 0
+  for s in words:
+      if len(s) >= 2:
+          if s[0] == s[-1:]:
+              count += 1
+  return count
 
 
 # B. front_x
