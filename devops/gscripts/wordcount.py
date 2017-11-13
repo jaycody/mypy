@@ -49,8 +49,14 @@ def print_words(filename):
     d = make_wordcount_dict_from(filename)
 
     # SORT BY KEY ALPHABETICALLY
-    for k, v in sorted(d.iteritems()):
-        print '\t{:8s} --> {}'.format(k, v)
+    #for k, v in sorted(d.iteritems()):
+    #    print '\t{:8s} --> {}'.format(k, v)
+
+    # SORT BY VALUE: TOPMOST ON TOP 
+    g = sorted(d.items(), key=lambda x: x[1], reverse=True)
+    for k, v in g:
+        if v > 20:
+            print '\t{:8s} --> {}'.format(k, v)
 
 
     return 1
