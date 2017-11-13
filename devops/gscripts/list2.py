@@ -44,7 +44,31 @@ def linear_merge(list1, list2):
     """
     # waaay over thought this one.
     ## previous to this: used izip, then zip,
-    return sorted(list1 + list2) # reverse=True
+    # I guess the l1 + l2 concatenation is cheating and inefficient
+    #return sorted(list1 + list2) # reverse=True
+
+    ### ahh, the list are already sorted before we start!
+    ###     which means the remainder in either list can be tacked on
+    ###     because they'll already be sorted.
+
+    ## so, new solution:
+    ## while neither list is empty:
+    ##     compare the first items from both lists
+    ##     pop the smallest out of its list
+    ##          and append it to a result list
+    ##     repeat until 1 or both lists are empty
+    ##     than extend both lists to results list,
+    ##          (one of the 2 lists will be empty so order doesn't matter)
+    result = []
+    while list1 and list2:              # while run until 1 list is empty
+        if list1[0] < list2[0]:
+            result.append(list1.pop(0))
+        else:
+            result.append(list2.pop(0))
+
+    result.extend(list1)
+    result.extend(list2)
+    return result
 
 # Note: the solution above is kind of cute, but unforunately list.pop(0)
 # is not constant time with the standard python list implementation, so
@@ -80,6 +104,7 @@ def main():
        ['aa', 'bb', 'cc', 'xx', 'zz'])
   test(linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb']),
        ['aa', 'aa', 'aa', 'bb', 'bb'])
+
 
 
 if __name__ == '__main__':
