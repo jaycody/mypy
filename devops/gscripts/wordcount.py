@@ -48,8 +48,10 @@ def print_words(filename):
 
     d = make_wordcount_dict_from(filename)
 
-    for k, v in d.iteritems():
+    # SORT BY KEY ALPHABETICALLY
+    for k, v in sorted(d.iteritems()):
         print '\t{:8s} --> {}'.format(k, v)
+
 
     return 1
 
@@ -57,10 +59,6 @@ def print_words(filename):
 def make_wordcount_dict_from(filename):
     """Return a dict with word:frequency pairs derived from <filename>.txt
     filename: string path-to-file
-
-    steps:
-    1. make file object.
-    2. verify file object using the .name method on the file object
     """
     #print '\nHello from function: {}'.format(make_wordcount_dict_from.func_name)
 
@@ -76,6 +74,10 @@ def make_wordcount_dict_from(filename):
         if word not in d:
             d[word] = 0
         d[word] += 1
+
+    # Counting with Dict: SLIGHTLY MORE PYTHONIC WAY
+
+    # Counting with Dict: ADVANCED PYTHONIC WAY
 
     return d
 
