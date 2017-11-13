@@ -46,7 +46,8 @@ def front_x(words):
     result = []
     s_first = []
     for s in words:
-        if s[0] == 'x':
+        if s.startswith('x'):
+        #if s[0] == 'x':
             s_first.append(s)
         else:
             result.append(s)
@@ -66,7 +67,7 @@ def sort_last(tuples):
   """Sort and return a list of tuples
   Custom sort key on last val in each tup in list tuples
   """
-  
+
   ## Try sorted on key with lambda function
   tuples.sort(key=lambda tup: tup[::-1])
   return tuples
