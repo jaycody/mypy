@@ -57,11 +57,11 @@ def both_ends(s):
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
-  # +++your code here+++
-  # change all but the first occurences of s[0] to '*'
-  s2 = s[1:]
-  new_s = ''
-  for index in xrange(len(s)):
+    # +++your code here+++
+    # change all but the first occurences of s[0] to '*'
+    s2 = s[1:]
+    new_s = ''
+    for index in xrange(len(s)):
       if index == 0:
           new_s = new_s + s[0]
 
@@ -71,7 +71,13 @@ def fix_start(s):
       else:
           new_s = new_s + s[index]
 
-  return new_s
+    return new_s
+
+    ## Hah! The solution (from googleclass -> basic -> solutions)
+    ##   is so elegant.. and almost a cheat. split the string into
+    ##      two strings, the first just being the first letter
+    ##      then tack on the first letter in the return statement
+    ##      thereby circumventing much of my else if complexity
 
 
 # D. MixUp
