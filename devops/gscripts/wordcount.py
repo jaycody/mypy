@@ -44,7 +44,7 @@ def print_words(filename):
     word1 count1
     word2 count2
     """
-    print '\nHello from function: {}'.format(print_words.func_name)
+    #print '\nHello from function: {}'.format(print_words.func_name)
 
     d = make_wordcount_dict_from(filename)
 
@@ -62,11 +62,15 @@ def make_wordcount_dict_from(filename):
     1. make file object.
     2. verify file object using the .name method on the file object
     """
-    print '\nHello from function: {}'.format(make_wordcount_dict_from.func_name)
+    #print '\nHello from function: {}'.format(make_wordcount_dict_from.func_name)
 
+    words_list = []
     with open(filename) as f:
-        print f.read()
-        print f.name
+        for line in f:
+            words_list.extend(line.split())
+
+    print words_list
+
 
     d = {'Key1':'value1'}
     return d
