@@ -29,8 +29,7 @@ def remove_adjacent(nums):
             consolidated.append(val)
             return consolidated
 
-        else:
-            #if 
+        elif nums[i] is not nums[i+1]:
             consolidated.append(val)
 
 
