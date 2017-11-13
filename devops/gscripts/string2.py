@@ -94,15 +94,12 @@ def not_bad_again(s):
     elif not_bad[0] > not_bad[1]:
         return s
 
-    else:
+    #else:
         # do this
-        return s.replace(s[not_bad[0]:not_bad[1]+3], 'good')
+    return s.replace(s[not_bad[0]:not_bad[1]+3], 'good')
 
 
 
-
-
-    print not_bad
 
     #if either n n == -1:
     #    return s
