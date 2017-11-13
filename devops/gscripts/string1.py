@@ -79,6 +79,30 @@ def fix_start(s):
     ##      then tack on the first letter in the return statement
     ##      thereby circumventing much of my else if complexity
 
+# D. fix_start_redux
+# Given a string s, return a string
+# where all occurences of its first char have
+# been changed to '*', except do not change
+# the first char itself.
+# e.g. 'babble' yields 'ba**le'
+# Assume that the string is length 1 or more.
+# Hint: s.replace(stra, strb) returns a version of string s
+# where all instances of stra have been replaced by strb.
+def fix_start_redux(s):
+    """Try this again, but with more Pythonic feeling"""
+    # set aside the first let
+    first = s[0]
+    the_rest = s[1:]
+
+    # can we just use a replace?
+    #### WHY YES WE CAN! Removes all instances without needing to iterate
+    the_rest = the_rest.replace(first, '*')
+    # find and replace first char with '*'
+    #for char in the_rest:
+
+
+    return first + the_rest
+
 
 # D. MixUp
 # Given strings a and b, return a single string with a and b separated
@@ -128,6 +152,13 @@ def main():
   test(fix_start('aardvark'), 'a*rdv*rk')
   test(fix_start('google'), 'goo*le')
   test(fix_start('donut'), 'donut')
+
+  print
+  print 'fix_start_redux'
+  test(fix_start_redux('babble'), 'ba**le')
+  test(fix_start_redux('aardvark'), 'a*rdv*rk')
+  test(fix_start_redux('google'), 'goo*le')
+  test(fix_start_redux('donut'), 'donut')
 
   print
   print 'mix_up'
