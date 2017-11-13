@@ -59,6 +59,7 @@ def print_top(filename):
         # DISPLAY WORDS THAT APPEAR MORE THAN 20 TIMES
         #if v > 20:
         #    print '\t{:8s} --> {}'.format(k, v)
+    sys.exit(0)
 
 
 def print_words(filename):
@@ -76,7 +77,7 @@ def print_words(filename):
 
 
 
-    return 1
+    sys.exit(0)
 
 
 def make_wordcount_dict_from(filename):
