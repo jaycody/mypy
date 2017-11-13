@@ -41,14 +41,13 @@ import sys
 
 def print_top(filename):
     """Prints the top 20 most frequently appearing words and sort by count"""
-    #print '\nHello from function: {}'.format(print_top.func_name)
-
-    d = make_wordcount_dict_from(filename)
-
-    # SORT BY VALUE: TOPMOST ON TOP
-    g = sorted(d.items(), key=lambda x: x[1], reverse=True)
 
     top_twenty_count = 0
+    d = make_wordcount_dict_from(filename)
+
+    # SORT BY VALUE: FREQUENCY, MOST FEQ ON TOP
+    g = sorted(d.items(), key=lambda x: x[1], reverse=True)
+
     for k, v in g:
 
         # DISPLAY TOP 20 WORDS
@@ -59,26 +58,23 @@ def print_top(filename):
         # DISPLAY WORDS THAT APPEAR MORE THAN 20 TIMES
         #if v > 20:
         #    print '\t{:8s} --> {}'.format(k, v)
+        
     sys.exit(0)
-
 
 def print_words(filename):
     """Counts how often each word appears in the text and prints:
     word1 count1
     word2 count2
     """
-    #print '\nHello from function: {}'.format(print_words.func_name)
 
     d = make_wordcount_dict_from(filename)
 
     # SORT BY KEY ALPHABETICALLY
-    for k, v in sorted(d.iteritems()):
+    g = sorted(d.iteritems())
+    for k, v in g:
         print '\t{:8s} --> {}'.format(k, v)
 
-
-
     sys.exit(0)
-
 
 def make_wordcount_dict_from(filename):
     """Return a dict with word:frequency pairs derived from <filename>.txt
@@ -99,11 +95,14 @@ def make_wordcount_dict_from(filename):
             d[word] = 0
         d[word] += 1
 
+    return d
+
     # Counting with Dict: SLIGHTLY MORE PYTHONIC WAY
+    ### default dict code here #######
 
     # Counting with Dict: ADVANCED PYTHONIC WAY
+    #### MAGIC HERE #######
 
-    return d
 
 # +++your code here+++
 # Define print_words(filename) and print_top(filename) functions.
