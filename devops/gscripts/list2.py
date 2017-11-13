@@ -13,8 +13,25 @@
 # so [1, 2, 2, 3] returns [1, 2, 3]. You may create a new list or
 # modify the passed in list.
 def remove_adjacent(nums):
-  # +++your code here+++
-  return
+    """Remove adjacent equivalent elements and return as list"""
+
+    consolidated = []
+
+    # If incoming list is empty, send back an empty list
+    if not nums:
+        return consolidated
+
+    # Find and consolidate adjacent duplicates
+    for i, val in enumerate(nums):
+        # Stop! You've reached the end of the list.
+        #   Do not compare val to index+1! Avoid 'out of range boundary' error. Return the consolidate list
+        if i >= len(nums)-1:
+            consolidated.append(val)
+            return consolidated
+
+        else:
+            #if 
+            consolidated.append(val)
 
 
 # E. Given two lists sorted in increasing order, create and return a merged
