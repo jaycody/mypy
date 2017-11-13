@@ -49,7 +49,7 @@ def print_words(filename):
     d = make_wordcount_dict_from(filename)
 
     for k, v in d.iteritems():
-        print '\t{} {}'.format(k, v)
+        print '\t{:8s} --> {}'.format(k, v)
 
     return 1
 
@@ -65,14 +65,18 @@ def make_wordcount_dict_from(filename):
     #print '\nHello from function: {}'.format(make_wordcount_dict_from.func_name)
 
     words_list = []
+    d = {}
     with open(filename) as f:
         for line in f:
+            line = line.lower()
             words_list.extend(line.split())
 
-    print words_list
+    # Counting with Dict: BEGINNERS WAY
+    for word in words_list:
+        if word not in d:
+            d[word] = 0
+        d[word] += 1
 
-
-    d = {'Key1':'value1'}
     return d
 
 # +++your code here+++
