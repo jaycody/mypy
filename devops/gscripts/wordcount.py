@@ -64,6 +64,10 @@ def make_wordcount_dict_from(filename):
     """
     print '\nHello from function: {}'.format(make_wordcount_dict_from.func_name)
 
+    with open(filename) as f:
+        print f.read()
+        print f.name
+
     d = {'Key1':'value1'}
     return d
 
