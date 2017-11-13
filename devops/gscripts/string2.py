@@ -83,8 +83,24 @@ def not_bad_again(s):
     Oh snap, and returns -1 if the char does not live in the string
     """
 
+    # simultaneous assignemnt. COOL
     not_bad = s.find('not'), s.find('bad')
-    
+
+    # test for existence. if either not or bad do not exist, return orignal string
+    if -1 in not_bad:
+        return s
+
+    # If 'NOT' appears after 'BAD', let the original string pass
+    elif not_bad[0] > not_bad[1]:
+        return s
+
+    else:
+        # do this
+        return s.replace(s[not_bad[0]:not_bad[1]+3], 'good')
+
+
+
+
 
     print not_bad
 
