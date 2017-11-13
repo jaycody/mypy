@@ -42,13 +42,9 @@ def linear_merge(list1, list2):
     1. zip two lists together
     2. custom sort on iteration?
     """
-    consolidated = []
-    for item_a, item_b in zip(list1, list2):
-        consolidated.append(item_a)
-        consolidated.append(item_b)
-
-
-    return consolidated
+    # waaay over thought this one.
+    ## previous to this: used izip, then zip,
+    return sorted(list1 + list2) # reverse=True
 
 # Note: the solution above is kind of cute, but unforunately list.pop(0)
 # is not constant time with the standard python list implementation, so
