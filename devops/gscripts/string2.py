@@ -63,6 +63,45 @@ def not_bad(s):
 
     return good_string
 
+# E. not_bad
+# Given a string, find the first appearance of the
+# substring 'not' and 'bad'. If the 'bad' follows
+# the 'not', replace the whole 'not'...'bad' substring
+# with 'good'.
+# Return the resulting string.
+# So 'This dinner is not that bad!' yields:
+# This dinner is good!
+def not_bad_again(s):
+    """Ooooh, let's use the string.find(char) function!
+    That'll make life easier, aye?
+
+    Oooh, the string.find(char) returns the index!!! NICE
+    Well, actually, string.find(char) returns the number of occurences
+
+    Welllllll, aaaactually it does return the index
+
+    Oh snap, and returns -1 if the char does not live in the string
+    """
+
+    not_bad = s.find('not'), s.find('bad')
+    
+
+    print not_bad
+
+    #if either n n == -1:
+    #    return s
+    # verify that the two substrings live in the string
+    #   AND verify that the starting index for 'bad' is greater than 'not'
+    #       if these conditions aren't met, return the original string
+
+
+
+
+
+
+
+
+
 
 # F. front_back
 # Consider dividing a string into two halves.
@@ -114,6 +153,13 @@ def main():
   test(not_bad('This dinner is not that bad!'), 'This dinner is good!')
   test(not_bad('This tea is not hot'), 'This tea is not hot')
   test(not_bad("It's bad yet not"), "It's bad yet not")
+
+  print
+  print 'not_bad_again'
+  test(not_bad_again('This movie is not so bad'), 'This movie is good')
+  test(not_bad_again('This dinner is not that bad!'), 'This dinner is good!')
+  test(not_bad_again('This tea is not hot'), 'This tea is not hot')
+  test(not_bad_again("It's bad yet not"), "It's bad yet not")
 
   print
   print 'front_back'
