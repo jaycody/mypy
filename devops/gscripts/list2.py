@@ -43,7 +43,7 @@ def linear_merge(list1, list2):
     2. custom sort on iteration?
     """
     consolidated = []
-    for item_a, item_b in izip(list1, list2):
+    for item_a, item_b in zip(list1, list2):
         consolidated.append(item_a)
         consolidated.append(item_b)
 
