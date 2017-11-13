@@ -39,6 +39,28 @@ print_words() and print_top().
 
 import sys
 
+def print_top(filename):
+    """Prints the top 20 most frequently appearing words and sort by count"""
+    #print '\nHello from function: {}'.format(print_top.func_name)
+
+    d = make_wordcount_dict_from(filename)
+
+    # SORT BY VALUE: TOPMOST ON TOP
+    g = sorted(d.items(), key=lambda x: x[1], reverse=True)
+
+    top_twenty_count = 0
+    for k, v in g:
+
+        # DISPLAY TOP 20 WORDS
+        if top_twenty_count < 20:
+            print '\t{:8s} --> {}'.format(k, v)
+        top_twenty_count += 1
+
+        # DISPLAY WORDS THAT APPEAR MORE THAN 20 TIMES
+        #if v > 20:
+        #    print '\t{:8s} --> {}'.format(k, v)
+
+
 def print_words(filename):
     """Counts how often each word appears in the text and prints:
     word1 count1
@@ -49,14 +71,9 @@ def print_words(filename):
     d = make_wordcount_dict_from(filename)
 
     # SORT BY KEY ALPHABETICALLY
-    #for k, v in sorted(d.iteritems()):
-    #    print '\t{:8s} --> {}'.format(k, v)
+    for k, v in sorted(d.iteritems()):
+        print '\t{:8s} --> {}'.format(k, v)
 
-    # SORT BY VALUE: TOPMOST ON TOP 
-    g = sorted(d.items(), key=lambda x: x[1], reverse=True)
-    for k, v in g:
-        if v > 20:
-            print '\t{:8s} --> {}'.format(k, v)
 
 
     return 1
